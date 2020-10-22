@@ -1,0 +1,157 @@
+.slider{
+    height: 550px;
+    background-position: center;
+    background-size: cover;
+}
+
+.body{
+    background-image: url('../images/bg.png');
+    background-position: center ;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.letter{
+    line-height: 30px;
+}
+
+#signupbtn{
+  color:black;
+}
+
+#signupbtn:hover{
+  color:white;
+}
+
+.hover {
+    position: relative;
+}
+
+.sktext{
+    position: absolute;
+    top: 85%;
+    color:white;
+    transition: 1s;
+}
+
+.hover:hover .sktext{
+    top: 77%;
+    transition: 0.5s;
+    color:black;
+}
+
+.hoversk{
+    transition: .5s;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left:20%;
+    transform: translate(-50%, -50%);
+}
+
+.hover:hover .hoversk {
+    opacity: 1;
+    top: 85%;
+    left:20%;
+    transition: 1.3s;
+}
+
+.shwekyee {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    transition: .5s ease;
+    background-color:rgb(255, 255, 255);
+    filter: brightness(40%) grayscale(50%);
+}
+
+.hover:hover .shwekyee {
+    filter: brightness(100%) grayscale(0%);
+    object-fit: cover;
+    object-position: 10% 20%; 
+}
+
+
+.screen-overlay {
+  height: 100%;
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity:0;
+  visibility:hidden;
+  background-color: rgba(34, 34, 34, 0.6);
+  transition:opacity .2s linear, visibility .1s, width 1s ease-in;
+}
+.screen-overlay.show {
+  transition:opacity .5s ease, width 0s;
+  opacity:1;
+  width:100%;
+  visibility:visible;
+}
+
+.offcanvas{
+  width:350px;
+  visibility: hidden;
+  transform:translateX(-100%);
+  transition:all .2s;
+  border-radius:0; 
+  box-shadow: 0 5px 10px rgba(0,0,0, .2);
+  display:block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1200;
+  background-color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.offcanvas.show{
+  visibility: visible;
+  transform: translateX(0);
+  transition: transform .2s;
+}
+
+header {
+  position: relative;
+  background-color: black;
+  height: 550px;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}

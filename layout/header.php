@@ -26,7 +26,7 @@
                 <?php
                 if(!empty($_SESSION['username']))
                 {?>
-                    <span href='#' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;<?php echo $_SESSION['username'];?></span>
+                    <span href='#' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $_SESSION['username'];?></span>
                     <a href='logout.php' class='btn btn-outline-dark btn-sm rounded-pill px-3 py-2'><i class="fas fa-sign-out-alt"></i>&nbsp;LOGOUT</a>
                 <?php } else {?>
                 <button class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2" data-toggle="modal" data-target="#login"><i class="fa fa-user"></i> &nbsp;LOGIN</button>

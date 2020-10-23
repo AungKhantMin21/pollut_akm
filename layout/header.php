@@ -71,8 +71,8 @@
     <div class="p-4 bg-dark">
     </div>
     <nav class="list-group list-group-flush">
-        <a href="#" class="list-group-item border-0 text-dark text-decoration-none">Home</a>
-        <a href="#" class="list-group-item border-0 text-dark text-decoration-none">About</a>
+        <a href="index.php" class="list-group-item border-0 text-dark text-decoration-none">Home</a>
+        <a href="aboutus.php" class="list-group-item border-0 text-dark text-decoration-none">About</a>
         <a href="#" class="list-group-item border-0 text-dark text-decoration-none">News</a>
         <a href="#" class="list-group-item border-0 text-dark text-decoration-none">Help</a>
         <a href="#" class="list-group-item border-0 text-dark text-decoration-none">Contact Us</a>

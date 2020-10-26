@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "dbconfig/dbconnect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +11,25 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css'/>
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
+    <style>
+            .nav-pills .nav-link.active,
+            .nav-pills .show > .nav-link {
+            color: #343a40;
+            background:white;
+            border-left:5px solid #343a40;
+            border-radius:0px;
+            }
+
+            .tabs{
+                border-radius:0px;
+                border:1px solid #dee2e6;
+                color:#343a40;
+            }
+
+            .tabs:hover{
+                color:rgb(26, 26, 26);
+            }
+    </style>
 </head>
 <body>
 <!-- navbar for desktop version-->
@@ -24,9 +44,13 @@
             </div>
             <div class="col-md-4 text-right px-0">
                 <?php
+                
                 if(!empty($_SESSION['username']))
-                {?>
-                    <span href='#' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $_SESSION['username'];?></span>
+                {   
+                    $sql="SELECT * FROM user WHERE username ='".$_SESSION['username']."'";
+                    $result = mysqli_query($conn,$sql);
+                    $dataset = mysqli_fetch_array($result);?>
+                    <a href='account.php?id=<?php echo $result['id'];?>' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $result['username'];?></a>
                     <a href='logout.php' class='btn btn-outline-dark btn-sm rounded-pill px-3 py-2'><i class="fas fa-sign-out-alt"></i>&nbsp;LOGOUT</a>
                 <?php } else {?>
                 <button class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2" data-toggle="modal" data-target="#login"><i class="fa fa-user"></i> &nbsp;LOGIN</button>
@@ -237,7 +261,7 @@
                     </div>
                     <div class="row px-2 mt-2">
                         <div class="col-12">
-                            <a href='account.php' class='btn btn-dark btn-block mb-2' type='submit' >Sign Up</a>
+                            <button class='btn btn-dark btn-block mb-2' type='submit' >Sign Up</button>
                             <small class="text-muted">Already have an account?</small>
                             <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#login" data-dismiss="modal" aria-label="Close">Login</a>
                         </div>

@@ -157,8 +157,7 @@ header .overlay {
   }
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: darkblue;
+.tabs:hover{
+  color:rgb(26, 26, 26);
+  border-left
 }

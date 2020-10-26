@@ -171,11 +171,14 @@
         }
         $('#myModal').on('shown.bs.modal', function () {
             $('#myInput').trigger('focus')
-        })
+        });
         $('#myTab a').on('click', function (e) {
             e.preventDefault()
             $(this).tab('show')
-        })
+        });
+        setTimeout(function () { 
+            $('.alert').alert('close'); 
+        }, 5000); 
     </script>
 </body>
 </html>

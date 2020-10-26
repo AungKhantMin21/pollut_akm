@@ -1,6 +1,6 @@
 <?php
 
-
+    session_start();
     require_once "dbconfig/dbconnect.php";
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -24,3 +24,20 @@
 
     $sql="INSERT INTO user(username,email, password,status) VALUES('".$username."','".$email."','".$password."','".$status."')";
     mysqli_query($conn,$sql);
+    
+
+    $sql= "SELECT * FROM user WHERE username='".$username."' AND password='".$password."'";
+    
+    $result = mysqli_query($conn,$sql);
+    $dataset = mysqli_fetch_array($result);
+
+
+    $count = mysqli_num_rows($result);
+    if($count == 1){
+        $_SESSION['username'] = $username;
+        $_SESSION['flash'] = "You're successfully signup. You can edit your details here.";
+        header("location:account.php");
+    }
+    else{
+        header("location:aboutus.php");
+    }

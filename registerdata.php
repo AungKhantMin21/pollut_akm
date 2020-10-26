@@ -21,7 +21,6 @@
     //echo "<br/>";
     //echo $status;
 
-    $sql="INSERT INTO user(username,email, password,status) VALUES('".$username."','".$email."','".$password."','".$status."')";
 
+    $sql="INSERT INTO user(username,email, password,status) VALUES('".$username."','".$email."','".$password."','".$status."')";
     mysqli_query($conn,$sql);
-    header("location:index.php");

@@ -192,11 +192,11 @@
                         <div class="col-sm-6 px-0">
                             <img src="https://img.freepik.com/free-vector/air-pollution-problem-big-city-two-children-silhouette-modern-city-with-skyscrapers-factories-garbage-pollution-cities-concept-urban-landscape-illustration_313242-19.jpg?size=626&ext=jpg&ga=GA1.2.1474196149.1603190938" class="w-100 h-100" alt="" style="filter:grayscale(100%); object-fit:cover;">
                         </div>
-                        <div class="col-sm-6" style="height:400px;">
+                        <div class="col-sm-6 pb-3">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                        </button><br>
-                        <div class="row px-2 mb-4 mt-3">
+                        </button>
+                        <div class="row px-2 mb-4 mt-5">
                         <div class="col-12 text-center">
                         <h4 class="w-100 font-weight-bold text-uppercase">Create account</h4>
                         </div>
@@ -207,7 +207,7 @@
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                </div>
+                                </div>  
                                 <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-4">
@@ -222,13 +222,88 @@
                                 </div>
                                 <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text  bg-white border-top-0 border-left-0 border-right-0 rounded-0" for="inputGroupSelect01">
+                                        <i class="fas fa-user-cog"></i>
+                                    </label>
+                                </div>
+                                <select name="status" class="custom-select border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroupSelect01">
+                                    <option value="0">Admin</option>
+                                    <option selected value="1">User</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row px-2 mt-2">
                         <div class="col-12">
-                            <button class="btn btn-dark btn-block mb-2" type="submit">Sign Up</button>
+                            <a href='account.php' class='btn btn-dark btn-block mb-2' type='submit' >Sign Up</a>
                             <small class="text-muted">Already have an account?</small>
                             <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#login" data-dismiss="modal" aria-label="Close">Login</a>
+                        </div>
+                    </div>
+                    </form>
+                    </div>
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- modal for account details -->
+<div class="modal fade" id="accdetails" tabindex="-1" aria-labelledby="accdetailsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-0">
+        <div class="modal-body p-0">
+                <div class="container fluid">
+                    <div class="row">
+                        <div class="col-sm-6 px-0">
+                            <img src="https://img.freepik.com/free-vector/air-pollution-problem-big-city-two-children-silhouette-modern-city-with-skyscrapers-factories-garbage-pollution-cities-concept-urban-landscape-illustration_313242-19.jpg?size=626&ext=jpg&ga=GA1.2.1474196149.1603190938" class="w-100 h-100" alt="" style="filter:grayscale(100%); object-fit:cover;">
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="row px-2 mb-4 mt-5">
+                        <div class="col-12 text-center">
+                        <h4 class="w-100 font-weight-bold text-uppercase">Account Details</h4>
+                        </div>
+                    </div>
+                    <form action="./updatedata.php?id=<?php echo $result['id'];?>" method="POST">
+                    <div class="row px-2">
+                        <div class="col-12">
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-id-card"></i></span>
+                                </div>  
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="fullname" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-calendar-alt"></i></span>
+                                </div>
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="dob" placeholder="Date of Birth" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="address" placeholder="Postal Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-location-arrow"></i></span>
+                                </div>
+                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="postalcode" placeholder="Postal Code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row px-2 mt-2">
+                        <div class="col-12">
+                            <button class="btn btn-dark btn-block mb-2" type="submit">Confirm</button>
+                            <small class="text-muted">Something wrong?</small>
+                            <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#signup" data-dismiss="modal" aria-label="Close">Go Back</a>
                         </div>
                     </div>
                     </form>

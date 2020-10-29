@@ -1,20 +1,33 @@
 <?php
     session_start();
     require_once "dbconfig/dbconnect.php";
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    $sql= "SELECT * FROM user WHERE username='".$username."' AND password='".$password."'";
-    
-    $result = mysqli_query($conn,$sql);
-    $dataset = mysqli_fetch_array($result);
+    if(isset($_POST['username'],$_POST['password'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    $count = mysqli_num_rows($result);
-    if($count == 1){
-        $_SESSION['username'] = $username;
-        header("location:index.php");
+        $sql= "SELECT * FROM user WHERE username='".$username."' AND password='".$password."'";
+        
+        $result = mysqli_query($conn,$sql);
+        $dataset = mysqli_fetch_array($result);
+
+        $count = mysqli_num_rows($result);
+        if($count == 1){
+            $_SESSION['username'] = $username;
+            header("location:index.php");
+        }
+        else{
+            echo '<script type="text/javascript">'; 
+            echo 'alert("The username or password are incorrect! Please try again.");'; 
+            echo 'window.location.href = "index.php";';
+            echo '</script>';
+        }
     }
     else{
-        header("location:aboutus.php");
+        echo '<script type="text/javascript">'; 
+        echo 'alert("Username and password cannot be blank");'; 
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
     }
+    
 ?>

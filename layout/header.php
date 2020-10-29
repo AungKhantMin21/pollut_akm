@@ -1,9 +1,12 @@
 <?php
     session_start();
     require_once "dbconfig/dbconnect.php";
-    $sql="SELECT * FROM user WHERE username ='".$_SESSION['username']."'";
-    $dataset = mysqli_query($conn,$sql);
-    $result = mysqli_fetch_array($dataset);
+    if(!empty($_SESSION['username'])){
+        $sql="SELECT * FROM user WHERE username ='".$_SESSION['username']."'";
+        $dataset = mysqli_query($conn,$sql);
+        $result = mysqli_fetch_array($dataset);
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,13 +184,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-user" aria-hidden="true"></i></span>
                                 </div>
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-key" aria-hidden="true"></i></span>
                                 </div>
-                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
                         </div>
                     </div>
@@ -233,19 +236,19 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-user" aria-hidden="true"></i></span>
                                 </div>  
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                                 </div>
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="email" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="email" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-key" aria-hidden="true"></i></span>
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-key" aria-hidden="true" ></i></span>
                                 </div>
-                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">

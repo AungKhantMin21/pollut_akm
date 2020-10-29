@@ -1,12 +1,21 @@
 <?php 
     include("layout/header.php");
+    if(empty($_SESSION['username']))
+    {
+        echo '<script type="text/javascript">'; 
+        echo 'alert("You does not have permission to visit this page. You need to login first.");'; 
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
+    }
+    else{
+
     require_once "dbconfig/dbconnect.php";
     $tbluser = "SELECT * FROM user WHERE username= '".$_SESSION['username']."'";
     $dataset = mysqli_query($conn,$tbluser);
     $result = mysqli_fetch_array($dataset);
-    $tblquestion = "SELECT * FROM question AS q, user AS u WHERE q.id = u.id;";
+    $tblquestion = "SELECT * FROM question AS q, user AS u WHERE q.id = u.id ORDER BY q.question_id DESC;";
     $q_dataset = mysqli_query($conn,$tblquestion);
-    $userquestion = "SELECT * FROM question as q, answer as a, user AS u WHERE q.id = u.id AND a.question_id = q.question_id AND u.username= '".$_SESSION['username']."'";
+    $userquestion = "SELECT * FROM question as q, user AS u WHERE q.id = u.id AND u.username= '".$_SESSION['username']."' ORDER BY q.question_id DESC";
     //echo $userquestion;
     //exit();
     $qu_dataset= mysqli_query($conn,$userquestion);
@@ -26,8 +35,6 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="alert alert-success" role="alert">
-                </div>
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     
@@ -76,27 +83,27 @@
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label>Username</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="username" value="<?php echo $result['username'];?>" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" class="form-control pl-2 rounded-0" name="username" value="<?php echo $result['username'];?>" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label>Fullname</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="fullname" value="<?php echo $result['fullname'];?>" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" class="form-control pl-2 rounded-0" name="fullname" value="<?php echo $result['fullname'];?>" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="dob" value="<?php echo $result['dob'];?>" placeholder="Date of birth" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" class="form-control pl-2 rounded-0" name="dob" value="<?php echo $result['dob'];?>" placeholder="Date of birth" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <div class="col-md-4 my-3">
                                     <label>Email</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="email" value="<?php echo $result['email'];?>" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" class="form-control pl-2 rounded-0" name="email" value="<?php echo $result['email'];?>" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <div class="col-md-4 my-3">
                                     <label>Address</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="address" value="<?php echo $result['address'];?>" placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" class="form-control pl-2 rounded-0" name="address" value="<?php echo $result['address'];?>" placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <div class="col-md-4 my-3">
                                     <label>Postal Code</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="postalcode" value="<?php echo $result['postalcode'];?>" placeholder="Postal Code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" class="form-control pl-2 rounded-0" name="postalcode" value="<?php echo $result['postalcode'];?>" placeholder="Postal Code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <button type="reset" class="btn btn-outline-danger ml-3 mr-2 mt-3 px-3" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Back</button>
                                 <button type="submit" class="btn btn-dark mt-3 px-4">Edit</button>
@@ -160,7 +167,7 @@
                                     <div class="p-3">
                                         <div class="row">
                                             <div class="col-12 px-0">
-                                                <input type="text" class="form-control pl-2 rounded-0" name="password" value="<?php echo $result['password'];?>" placeholder="Postal Code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                                <input type="text" class="form-control pl-2 rounded-0" name="password" value="<?php echo $result['password'];?>" placeholder="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                             </div>
                                             <small class="mt-2 text-muted">
                                                 It's a good idea to use strong password for stronger security.
@@ -238,49 +245,142 @@
                         </div>
                     </div> -->
                     <div class="tab-pane fade show" id="question" role="tabpanel" aria-labelledby="question-tab">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h3 class="w-100 pb-5 mt-3">All questions asked by users</h3>
-                            </div>
-                        </div>
                         <div class="col-md-12">
-                            <?php if($result['status'] == 0){
-                                while($q_result = mysqli_fetch_array($q_dataset)){?>
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <span class="text-muted"><?php echo $q_result['username'];?></span><br>
-                                        <span class="text-muted"><?php echo $q_result['question_date'];?></span><br>
-                                        <p><?php echo $q_result['question'];?></p>
-                                        <hr>
-                                        <h6>Answer section</h6>
-                                        <?php if($result['status'] == 0){ ?>
-                                            <form action="answer.php" method="POST">
-                                                <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3"></textarea>
-                                                <button type="submit" class="btn btn-dark">Submit</button>
-                                            </form>
-                                        <?php }?>
-                                    </div>
-                                </div>
-                            <?php }}else{
-                                while($qu_result = mysqli_fetch_array($qu_dataset)){?>
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <span class="text-muted"><?php echo $qu_result['username'];?></span><br>
-                                        <span class="text-muted"><?php echo $qu_result['question_date'];?></span><br>
-                                        <p><?php echo $qu_result['question'];?></p>
-                                        <hr>
-                                        <h6>Answer section</h6>
-                                        <?php if($result['status'] == 0){ ?>
-                                            <form action="answer.php" method="POST">
-                                                <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3"></textarea>
-                                                <button type="submit" class="btn btn-dark">Submit</button>
-                                            </form>
-                                        <?php }else{?>
-                                            <p><?php echo $qu_result['answer'];?></p>
-                                        <?php }?>
-                                    </div>
-                                </div>
-                            <?php }}?>
+                            <?php if($result['status'] == 0){?>
+                                <h3 class="w-100 text-center pb-5 mt-3">All questions asked by users</h3>
+                                    <?php while($q_result = mysqli_fetch_array($q_dataset)){
+                                        $question_id= $q_result['id'];
+                                        $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
+                                        echo $tblanswer;
+                                        $a_dataset = mysqli_query($conn,$tblanswer);
+                                        if( $a_result = mysqli_fetch_array($a_dataset)){ ?>
+                                            <div class="card mb-3">
+                                                <div class="card-body shadow-sm">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <span class="text-muted"><?php echo $q_result['username'];?></span><br>
+                                                            <span class="text-muted"><?php echo $q_result['question_date'];?></span><br>
+                                                        </div>
+                                                        <div class="col-6 text-right">
+                                                        <?php if($result['status'] == 0){?>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                    <a class="dropdown-item" href="#">Post to FAQs</a>
+                                                                </div>
+                                                            </div>
+                                                        <?php } else{}?>
+                                                        </div>
+                                                    </div>
+                                                    <p><?php echo $q_result['question'];?></p>
+                                                    <hr>
+                                                    <h6>Answer section</h6>
+                                                    <?php if($result['status'] == 0){ ?>
+                                                        <div class="card mb-3">
+                                                            <div class="card-body bg-light p-2 border-0">
+                                                                <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span><br>                                                              
+                                                                <p><?php echo $a_result['answer'];?></p>
+                                                            </div>
+                                                        </div>
+                                                        <form action="insert_ans.php?id=<?php echo $q_result['question_id'];?>&user=<?php echo $result['id'];?>" method="POST">
+                                                            <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3" required></textarea>
+                                                            <button type="submit" class="btn btn-dark">Submit</button>
+                                                        </form>
+                                                    <?php }?>
+                                                </div>
+                                            </div>
+                                        <?php }else{ ?>
+                                            <div class="card mb-3">
+                                                <div class="card-body shadow-sm">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <span class="text-muted"><?php echo $q_result['username'];?></span><br>
+                                                            <span class="text-muted"><?php echo $q_result['question_date'];?></span><br>
+                                                        </div>
+                                                        <div class="col-6 text-right">
+                                                            <?php if($result['status'] == 0){?>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                                        <a class="dropdown-item" href="#">Post to FAQs</a>
+                                                                    </div>
+                                                                </div>
+                                                            <?php } else{}?>
+                                                        </div>
+                                                    </div>
+                                                    <p><?php echo $q_result['question'];?></p>
+                                                    <hr>
+                                                    <h6>Answer section</h6>
+                                                    <?php if($result['status'] == 0){ ?>
+                                                        <form action="insert_ans.php?id=<?php echo $q_result['question_id'];?>&user=<?php echo $result['id'];?>" method="POST">
+                                                            <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3" required></textarea>
+                                                            <button type="submit" class="btn btn-dark">Submit</button>
+                                                        </form>
+                                                    <?php }?>
+                                                </div>
+                                            </div>
+                                    <?php }
+                                    }}else{ ?>
+                                        <h3 class="w-100 text-center pb-5 mt-3">Your questions</h3>
+                                        <?php while($qu_result = mysqli_fetch_array($qu_dataset)){
+                                            if( $a_result = mysqli_fetch_array($a_dataset)){?>
+                                                <div class="card mb-3">
+                                                    <div class="card-body shadow-sm">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="text-muted"><?php echo $qu_result['username'];?></span><br>
+                                                                <span class="text-muted"><?php echo $qu_result['question_date'];?></span><br>
+                                                            </div>
+                                                            <div class="col-6 text-right">
+                                                            <?php if($result['id'] = $qu_result['id']){?>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                                        <a class="dropdown-item" href="#">Post to FAQs</a>
+                                                                    </div>
+                                                                </div>
+                                                            <?php } else{}?>
+                                                            </div>
+                                                        </div>
+                                                        <p><?php echo $qu_result['question'];?></p>
+                                                        <hr>
+                                                        <h6>Answer section</h6>
+                                                        <?php if($result['status'] == 0){ ?>
+                                                            <p><?php echo $qu_result['answer'];?></p>
+                                                            <form action="insert_ans.php" method="POST">
+                                                                <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3" required></textarea>
+                                                                <button type="submit" class="btn btn-dark">Submit</button>
+                                                            </form>
+                                                        <?php }else{?>
+                                                            <div class="card">
+                                                                <div class="card-body bg-light p-2 border-0">
+                                                                    <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span><br>                                                              
+                                                                    <p><?php echo $a_result['answer'];?></p>
+                                                                </div>
+                                                            </div>
+                                                        <?php }?>
+                                                    </div>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="card mb-3">
+                                                    <div class="card-body shadow-sm">
+                                                        <span class="text-muted"><?php echo $qu_result['username'];?></span><br>
+                                                        <span class="text-muted"><?php echo $qu_result['question_date'];?></span><br>
+                                                        <p><?php echo $qu_result['question'];?></p>
+                                                        <hr>
+                                                        <h6>Answer section</h6>
+                                                        <p>There's no answers yet.</p>
+                                                    </div>
+                                                </div>
+                                            <?php }?>
+                                        <?php }
+                                    }?>
                         </div>
                     </div>
                 </div>
@@ -306,4 +406,5 @@
 
 </section>
 <br><br><br>
-<?php include("layout/footer.php");?>
+<?php }
+include("layout/footer.php");?>

@@ -176,8 +176,9 @@
             e.preventDefault()
             $(this).tab('show')
         });
+
         setTimeout(function () { 
-            $('.alert').alert('close'); 
+            $('#afterlogin').alert('close'); 
         }, 5000); 
     </script>
 </body>

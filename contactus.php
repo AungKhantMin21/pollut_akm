@@ -15,13 +15,13 @@
                     <h4 class="mb-4">Contact form</h4>
                     <form class="mb-3" action="insert_q.php" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="Username">
+                            <input type="text" class="form-control" name="username" placeholder="Username" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="email" placeholder="Email">
+                            <input type="text" class="form-control" name="email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="question" placeholder="Ask a question" rows="5"></textarea>
+                            <textarea class="form-control" name="question" placeholder="Ask a question" rows="5" required></textarea>
                         </div>
                         <button type="reset" class="btn btn-outline-danger px-3 mr-2">Cancel</button>
                         <button type="submit" class="btn btn-dark px-4">Send</button>

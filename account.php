@@ -245,13 +245,12 @@
                         </div>
                     </div> -->
                     <div class="tab-pane fade show" id="question" role="tabpanel" aria-labelledby="question-tab">
-                        <div class="col-md-12">
+                        <div class="col-md-12"> 
                             <?php if($result['status'] == 0){?>
                                 <h3 class="w-100 text-center pb-5 mt-3">All questions asked by users</h3>
                                     <?php while($q_result = mysqli_fetch_array($q_dataset)){
-                                        $question_id= $q_result['id'];
+                                        $question_id= $q_result['question_id'];
                                         $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
-                                        echo $tblanswer;
                                         $a_dataset = mysqli_query($conn,$tblanswer);
                                         if( $a_result = mysqli_fetch_array($a_dataset)){ ?>
                                             <div class="card mb-3">
@@ -265,10 +264,10 @@
                                                         <?php if($result['status'] == 0){?>
                                                             <div class="dropdown">
                                                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
-                                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                    <a class="dropdown-item" href="#">Post to FAQs</a>
+                                                                <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                    <button class="dropdown-item bg-light" href="#" data-toggle="modal" data-target="#editquestion"><i class="fas fa-edit"></i> Edit</button>
+                                                                    <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                    <a class="dropdown-item bg-light" href="#"><i class="fas fa-upload"></i> Post to FAQs</a>
                                                                 </div>
                                                             </div>
                                                         <?php } else{}?>
@@ -303,10 +302,10 @@
                                                             <?php if($result['status'] == 0){?>
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
-                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                        <a class="dropdown-item" href="#">Post to FAQs</a>
+                                                                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-edit"></i> Edit</a>
+                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-upload"></i> Post to FAQs</a>
                                                                     </div>
                                                                 </div>
                                                             <?php } else{}?>
@@ -327,6 +326,9 @@
                                     }}else{ ?>
                                         <h3 class="w-100 text-center pb-5 mt-3">Your questions</h3>
                                         <?php while($qu_result = mysqli_fetch_array($qu_dataset)){
+                                            $question_id= $qu_result['question_id'];
+                                            $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
+                                            $a_dataset = mysqli_query($conn,$tblanswer);
                                             if( $a_result = mysqli_fetch_array($a_dataset)){?>
                                                 <div class="card mb-3">
                                                     <div class="card-body shadow-sm">
@@ -339,10 +341,9 @@
                                                             <?php if($result['id'] = $qu_result['id']){?>
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
-                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                        <a class="dropdown-item" href="#">Post to FAQs</a>
+                                                                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-edit"></i> Edit</a>
+                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
                                                                     </div>
                                                                 </div>
                                                             <?php } else{}?>
@@ -370,8 +371,23 @@
                                             <?php }else{ ?>
                                                 <div class="card mb-3">
                                                     <div class="card-body shadow-sm">
-                                                        <span class="text-muted"><?php echo $qu_result['username'];?></span><br>
-                                                        <span class="text-muted"><?php echo $qu_result['question_date'];?></span><br>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="text-muted"><?php echo $qu_result['username'];?></span><br>
+                                                                <span class="text-muted"><?php echo $qu_result['question_date'];?></span><br>
+                                                            </div>
+                                                            <div class="col-6 text-right">
+                                                                <?php if($result['id'] = $qu_result['id']){?>
+                                                                    <div class="dropdown">
+                                                                        <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                        <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item bg-light" href="#"><i class="fas fa-edit"></i> Edit</a>
+                                                                            <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } else{}?>
+                                                            </div>
+                                                        </div>
                                                         <p><?php echo $qu_result['question'];?></p>
                                                         <hr>
                                                         <h6>Answer section</h6>

@@ -265,8 +265,7 @@
                                                             <div class="dropdown">
                                                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                 <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
-                                                                    <button class="dropdown-item bg-light" href="#" data-toggle="modal" data-target="#editquestion"><i class="fas fa-edit"></i> Edit</button>
-                                                                    <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                    <a class="dropdown-item bg-light" href="delete_question.php?qid=<?php echo $q_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
                                                                     <a class="dropdown-item bg-light" href="#"><i class="fas fa-upload"></i> Post to FAQs</a>
                                                                 </div>
                                                             </div>
@@ -279,7 +278,20 @@
                                                     <?php if($result['status'] == 0){ ?>
                                                         <div class="card mb-3">
                                                             <div class="card-body bg-light p-2 border-0">
-                                                                <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span><br>                                                              
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span> 
+                                                                    </div>
+                                                                    <div class="col-6 text-right">
+                                                                        <div class="dropdown">
+                                                                            <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                            <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                                <a class="dropdown-item bg-light" href="editanswer.php?id=<?php echo $a_result['answer_id'];?>&qid=<?php echo $q_result['question_id'];?>"><i class="fas fa-edit"></i> Edit</a>
+                                                                                <a class="dropdown-item bg-light" href="delete_answer.php?id=<?php echo $a_result['answer_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                                                 
                                                                 <p><?php echo $a_result['answer'];?></p>
                                                             </div>
                                                         </div>
@@ -303,8 +315,7 @@
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                     <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-edit"></i> Edit</a>
-                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                        <a class="dropdown-item bg-light" href="delete_question.php?qid=<?php echo $q_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
                                                                         <a class="dropdown-item bg-light" href="#"><i class="fas fa-upload"></i> Post to FAQs</a>
                                                                     </div>
                                                                 </div>
@@ -342,8 +353,8 @@
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                     <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-edit"></i> Edit</a>
-                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                        <a href="editquestion.php?id=<?php echo $qu_result['question_id'];?>"  class="btn dropdown-item bg-light"><i class="fas fa-edit"></i> Edit</a>
+                                                                        <a class="dropdown-item bg-light" href="delete_question.php?qid=<?php echo $qu_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
                                                                     </div>
                                                                 </div>
                                                             <?php } else{}?>
@@ -381,8 +392,8 @@
                                                                     <div class="dropdown">
                                                                         <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                         <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item bg-light" href="#"><i class="fas fa-edit"></i> Edit</a>
-                                                                            <a class="dropdown-item bg-light" href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                            <a href="editquestion.php?id=<?php echo $qu_result['question_id'];?>" class="btn dropdown-item bg-light"><i class="fas fa-edit"></i> Edit</a>
+                                                                            <a class="dropdown-item bg-light" href="delete_question.php?qid=<?php echo $qu_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
                                                                         </div>
                                                                     </div>
                                                                 <?php } else{}?>

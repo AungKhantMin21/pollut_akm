@@ -102,9 +102,8 @@
         <a href="index.php" class="list-group-item border-0 text-dark text-decoration-none">Home</a>
         <a href="aboutus.php" class="list-group-item border-0 text-dark text-decoration-none">About</a>
         <a href="#" class="list-group-item border-0 text-dark text-decoration-none">News</a>
-        <a href="#" class="list-group-item border-0 text-dark text-decoration-none">Help</a>
         <a href="contactus.php" class="list-group-item border-0 text-dark text-decoration-none">Contact Us</a>
-        <a href="#" class="list-group-item border-0 text-dark text-decoration-none">FAQ</a>
+        <a href="faq.php" class="list-group-item border-0 text-dark text-decoration-none">FAQ</a>
     </nav>
 </aside>
 <!-- navbar for mobile version -->

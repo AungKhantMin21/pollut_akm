@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2020 at 07:47 AM
+-- Generation Time: Oct 30, 2020 at 10:24 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.18
 
@@ -39,9 +39,27 @@ CREATE TABLE `answer` (
 --
 
 INSERT INTO `answer` (`answer_id`, `answer`, `id`, `question_id`) VALUES
-(3, 'order desc testing done', 1, 7),
-(4, 'tesing', 1, 5),
-(6, 'akm admin answer test for final testing', 3, 3);
+(7, 'updated', 1, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `contactus_id` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`contactus_id`, `subject`, `message`, `id`) VALUES
+(1, 'feedback', 'message testing 1 ', 1);
 
 -- --------------------------------------------------------
 
@@ -74,11 +92,9 @@ CREATE TABLE `question` (
 
 INSERT INTO `question` (`question_id`, `question`, `question_date`, `id`) VALUES
 (2, 'something testing\r\n', '2020-10-28', 1),
-(3, 'final testing', '2020-10-28', 1),
 (5, 'user question testing', '2020-10-29', 3),
-(6, 'user question testing', '2020-10-29', 3),
 (7, 'order desc testing\r\n', '2020-10-29', 3),
-(10, 'something ', '2020-10-29', 1);
+(11, 'hello this is ask question new page testing \r\nupdated testing is done', '2020-10-30', 1);
 
 -- --------------------------------------------------------
 
@@ -103,8 +119,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `status`, `email`, `fullname`, `dob`, `address`, `postalcode`) VALUES
-(1, 'AungKhant', 'password1234', 0, 'aungkhantmin212002@gmail.com', 'Aung Khant Min', '21/8/2002', 'Yangon,Myanmar', '12345'),
-(3, 'akm', 'akm', 0, 'akm@gmail.com', 'akmmm', '21/8/2002', 'Yangon,Myanmar', '12345'),
+(1, 'AungKhant', '', 0, 'aungkhantmin212002@gmail.com', 'Aung Khant Min', '21/8/2002', 'Yangon,Myanmar', '12345'),
+(3, 'akm', 'akm', 1, 'akm@gmail.com', 'akmmm', '21/8/2002', 'Yangon,Myanmar', '12345'),
 (9, '', '', 1, '', '', '', '', ''),
 (10, '', '', 1, '', '', '', '', '');
 
@@ -119,6 +135,12 @@ ALTER TABLE `answer`
   ADD PRIMARY KEY (`answer_id`),
   ADD KEY `id` (`id`),
   ADD KEY `question_id` (`question_id`);
+
+--
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`contactus_id`);
 
 --
 -- Indexes for table `faqs`
@@ -149,7 +171,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `faqs`
@@ -161,7 +189,7 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`

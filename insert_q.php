@@ -31,7 +31,7 @@
                 //echo $sql;
                 //exit();
                 mysqli_query($conn,$sql);
-                header('location:contactus.php');   
+                header('location:faq.php');   
             }
         }
     }

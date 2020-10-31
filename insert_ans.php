@@ -15,7 +15,7 @@
         //exit();
         $answer = $_POST['answer'];
 
-        $sql = "INSERT INTO answer(answer,id,question_id) VALUES('$answer',$id,$question_id)";
+        $sql = "INSERT INTO answer(answer,id,question_id) VALUES(\"".$answer."\",$id,$question_id)";
         //echo $sql;
         //exit();
 

@@ -13,8 +13,14 @@
 
         $count = mysqli_num_rows($result);
         if($count == 1){
+            $_SESSION['id']= $dataset['id'];
             $_SESSION['username'] = $username;
-            header("location:index.php");
+            $_SESSION['status'] = $dataset['status'];
+            if($dataset['status'] == "0"){
+                header("location:account.php");
+            }else{
+                header("location:faq.php");
+            }
         }
         else{
             echo '<script type="text/javascript">'; 

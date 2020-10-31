@@ -1,4 +1,13 @@
-<?php include("layout/header.php");?>
+<?php include("layout/header.php");
+if(empty($_SESSION['username']))
+{
+    echo '<script type="text/javascript">'; 
+    echo 'alert("You does not have permission to visit this page. You need to login first.");'; 
+    echo 'window.location.href = "index.php";';
+    echo '</script>';
+}
+else{
+?>
 
     <section>
         <div class="container">
@@ -33,4 +42,5 @@
             </div>
         </div>
     </section>
-<?php include("layout/footer.php");?>
+<?php }
+include("layout/footer.php");?>

@@ -1,17 +1,24 @@
 <?php
-    require_once "dbconfig/dbconnect.php";
-
-    $qid = $_GET['qid'];
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM question AS q, user AS u, answer as a WHERE q.id=u.id AND q.question_id=a.question_id AND a.answer_id='$id' AND q.question_id =".$qid;
-    //echo $sql;
-    //exit();
-    $dataset = mysqli_query($conn,$sql);
-    $qu_result = mysqli_fetch_array($dataset);
-    // var_dump($result);
+    include("layout/header.php");
+    if(empty($_SESSION['username']))
+    {
+        echo '<script type="text/javascript">'; 
+        echo 'alert("You does not have permission to visit this page. You need to login first.");'; 
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
+    }
+    else{
+        require_once "dbconfig/dbconnect.php";
+        $qid = $_GET['qid'];
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM question AS q, user AS u, answer as a WHERE q.id=u.id AND q.question_id=a.question_id AND a.answer_id='$id' AND q.question_id =".$qid;
+        //echo $sql;
+        //exit();
+        $dataset = mysqli_query($conn,$sql);
+        $qu_result = mysqli_fetch_array($dataset);
+        // var_dump($result);
+        if($result['id'] == $qu_result['id']){
 ?>
-
-<?php include("layout/header.php");?>
 
     <section>
         <div class="container">
@@ -37,4 +44,10 @@
             </div>
         </div>
     </section>
-<?php include("layout/footer.php");?>
+    <?php }else{
+        echo '<script type="text/javascript">'; 
+        echo 'alert("You does not have permission to visit this page. You do not own this answer.");'; 
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
+    }
+    }include("layout/footer.php");?>

@@ -2,7 +2,7 @@
     session_start();
     require_once "dbconfig/dbconnect.php";
     if(!empty($_SESSION['username'])){
-        $sql="SELECT * FROM user WHERE username ='".$_SESSION['username']."'";
+        $sql="SELECT * FROM user WHERE id ='".$_SESSION['id']."'";
         $dataset = mysqli_query($conn,$sql);
         $result = mysqli_fetch_array($dataset);
     }
@@ -54,7 +54,7 @@
                 if(!empty($_SESSION['username']))
                 {   
                     ?>
-                    <a href='account.php?id=<?php echo $result['id'];?>' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $_SESSION['username'];?></a>
+                    <a href='account.php?id=<?php echo $result['id'];?>' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $result['username'];?></a>
                     <a href='logout.php' class='btn btn-outline-dark btn-sm rounded-pill px-3 py-2'><i class="fas fa-sign-out-alt"></i>&nbsp;LOGOUT</a>
                 <?php } else {?>
                 <button class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2" data-toggle="modal" data-target="#login"><i class="fa fa-user"></i> &nbsp;LOGIN</button>

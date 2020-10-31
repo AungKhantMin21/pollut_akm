@@ -8,8 +8,6 @@
     $address = $_POST['address'];
     $postalcode = $_POST['postalcode'];
 
-    $sql = "UPDATE student SET fullname='$fullname',dob='$dob',address='$student_address', postalcode='$postalcode' WHERE id=".$id;
-    // echo $sql;
-    // exit();
-    mysqli_query($conn,$sql);
-    header('location:index.php');
+    $sql = "UPDATE user SET fullname='$fullname',dob='$dob',address='$address', postalcode='$postalcode' WHERE id=".$id;
+    echo $sql;
+    exit();

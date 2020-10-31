@@ -10,12 +10,14 @@
     else{
 
     require_once "dbconfig/dbconnect.php";
-    $tbluser = "SELECT * FROM user WHERE username= '".$_SESSION['username']."'";
+    $tbluser = "SELECT * FROM user WHERE username= '".$result['username']."'";
     $dataset = mysqli_query($conn,$tbluser);
     $result = mysqli_fetch_array($dataset);
     $tblquestion = "SELECT * FROM question AS q, user AS u WHERE q.id = u.id ORDER BY q.question_id DESC;";
     $q_dataset = mysqli_query($conn,$tblquestion);
-    $userquestion = "SELECT * FROM question as q, user AS u WHERE q.id = u.id AND u.username= '".$_SESSION['username']."' ORDER BY q.question_id DESC";
+    $userquestion = "SELECT * FROM question as q, user AS u WHERE q.id = u.id AND u.username= '".$result['username']."' ORDER BY q.question_id DESC";
+    $tblcontactus = "SELECT * FROM contactus as c, user as u WHERE c.id=u.id ORDER BY c.contactus_id DESC";
+    $c_dataset = mysqli_query($conn,$tblcontactus);
     //echo $userquestion;
     //exit();
     $qu_dataset= mysqli_query($conn,$userquestion);
@@ -27,11 +29,16 @@
         <div class="row mt-4">
             <div class="col-md-3 mr-5">
                 <div class="nav flex-column nav-pills mt-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <?php if($result['status'] == 0){ ?>
                     <a class="nav-link active tabs rounded-0" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="true">General</a>
                     <a class="nav-link tabs rounded-0" id="v-pills-security-tab" data-toggle="pill" href="#v-pills-security" role="tab" aria-controls="v-pills-security" aria-selected="false">Security</a>
                     <a class="nav-link tabs rounded-0" id="question-tab" data-toggle="pill" href="#question" role="tab" aria-controls="question" aria-selected="false">Question</a>
-                    <a class="nav-link tabs rounded-0" id="v-pills-answers-tab" data-toggle="pill" href="#v-pills-answers" role="tab" aria-controls="v-pills-answers" aria-selected="false">Answers</a>
-                    <a class="nav-link tabs rounded-0" id="v-pills-news-tab" data-toggle="pill" href="#v-pills-news" role="tab" aria-controls="v-pills-news" aria-selected="false">News</a>
+                    <a class="nav-link tabs rounded-0" id="contactus-tab" data-toggle="pill" href="#contactus" role="tab" aria-controls="contactus" aria-selected="false">Contact</a>
+                    <?php } else{?>
+                        <a class="nav-link active tabs rounded-0" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="true">General</a>
+                        <a class="nav-link tabs rounded-0" id="v-pills-security-tab" data-toggle="pill" href="#v-pills-security" role="tab" aria-controls="v-pills-security" aria-selected="false">Security</a>
+                        <a class="nav-link tabs rounded-0" id="question-tab" data-toggle="pill" href="#question" role="tab" aria-controls="question" aria-selected="false">Question</a>
+                    <?php }?>
                 </div>
             </div>
             <div class="col-md-8">
@@ -109,6 +116,31 @@
                                 <button type="submit" class="btn btn-dark mt-3 px-4">Edit</button>
                             </div>
                         </form>
+                    </div>
+
+                    <div class="tab-pane fade show" id="contactus" role="tabpanel" aria-labelledby="contactus-tab">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h3 class="w-100 pb-5 mt-3">Users Messages</h3>
+                            </div>
+                        </div>
+                        <?php while($c_result = mysqli_fetch_array($c_dataset)){?>
+                        <div class="card mb-3">
+                            <div class="card-body shadow-sm">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span class="text-muted"><?php echo $c_result['username'];?></span><br>
+                                        <span class="text-muted"><?php echo $c_result['contact_date'];?></span><br>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a href="delete_contact.php?id=<?php echo $c_result['contactus_id'];?>" class="btn btn-outline-danger rounded-circle btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <h4 class="my-2"><?php echo $c_result['subject'];?></h4>
+                                <p><?php echo $c_result['message'];?></p>
+                            </div>
+                        </div>
+                        <?php }?>
                     </div>
 
                     <div class="tab-pane fade" id="v-pills-security" role="tabpanel" aria-labelledby="v-pills-security-tab">

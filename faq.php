@@ -1,5 +1,15 @@
 <?php include("layout/header.php");
 require_once "dbconfig/dbconnect.php";
+if(empty($_SESSION['username']))
+{
+    echo '<script type="text/javascript">'; 
+    echo 'alert("You does not have permission to visit this page. You need to login first.");'; 
+    echo 'window.location.href = "index.php";';
+    echo '</script>';
+}
+else{
+
+
 $tbluser = "SELECT * FROM user WHERE username= '".$_SESSION['username']."'";
 $dataset = mysqli_query($conn,$tbluser);
 $result = mysqli_fetch_array($dataset);
@@ -42,4 +52,5 @@ $q_dataset = mysqli_query($conn,$tblquestion);
         </div>
     </section>
 
-<?php include("layout/footer.php");?>
+<?php }
+include("layout/footer.php");?>

@@ -1,17 +1,28 @@
 <?php
+    include("layout/header.php");
     require_once "dbconfig/dbconnect.php";
+    if(empty($_SESSION['id']))
+    {
+        echo '<script type="text/javascript">'; 
+        echo 'alert("You does not have permission to visit this page. You need to login first.");'; 
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
+    }
+    else{
+        $id = $_GET['id'];
 
-    $id = $_GET['id'];
-
-    $sql = "SELECT * FROM question AS q, user AS u WHERE q.id=u.id AND q.question_id =".$id;
-    //echo $sql;
-    //exit();
-    $dataset = mysqli_query($conn,$sql);
-    $qu_result = mysqli_fetch_array($dataset);
-    // var_dump($result);
+        $sql = "SELECT * FROM question AS q, user AS u WHERE q.id=u.id AND q.question_id =".$id;
+        //echo $sql;
+        //exit();
+        $dataset = mysqli_query($conn,$sql);
+        $qu_result = mysqli_fetch_array($dataset);
+        // var_dump($result);
+        $tbluser = "SELECT * FROM user WHERE id= '".$_SESSION['id']."'";
+        $dataset = mysqli_query($conn,$tbluser);
+        $result = mysqli_fetch_array($dataset);
+        if($result['id'] == $qu_result['id']){
 ?>
 
-<?php include("layout/header.php");?>
 
     <section>
         <div class="container">
@@ -34,4 +45,10 @@
             </div>
         </div>
     </section>
-<?php include("layout/footer.php");?>
+    <?php } else{
+        echo '<script type="text/javascript">'; 
+        echo 'alert("You does not have permission to visit this page. You do not own this question.");'; 
+        echo 'window.location.href = "index.php";';
+        echo '</script>';}
+    }
+    include("layout/footer.php");?>

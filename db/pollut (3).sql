@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2020 at 10:24 PM
+-- Generation Time: Oct 31, 2020 at 09:02 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.18
 
@@ -39,7 +39,8 @@ CREATE TABLE `answer` (
 --
 
 INSERT INTO `answer` (`answer_id`, `answer`, `id`, `question_id`) VALUES
-(7, 'updated', 1, 11);
+(7, 'updated', 1, 11),
+(10, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\n', 1, 16);
 
 -- --------------------------------------------------------
 
@@ -51,6 +52,7 @@ CREATE TABLE `contactus` (
   `contactus_id` int(11) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
+  `contact_date` date NOT NULL DEFAULT current_timestamp(),
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -58,8 +60,8 @@ CREATE TABLE `contactus` (
 -- Dumping data for table `contactus`
 --
 
-INSERT INTO `contactus` (`contactus_id`, `subject`, `message`, `id`) VALUES
-(1, 'feedback', 'message testing 1 ', 1);
+INSERT INTO `contactus` (`contactus_id`, `subject`, `message`, `contact_date`, `id`) VALUES
+(3, 'feedback after delete', 'message testing', '2020-10-31', 3);
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,8 @@ INSERT INTO `question` (`question_id`, `question`, `question_date`, `id`) VALUES
 (2, 'something testing\r\n', '2020-10-28', 1),
 (5, 'user question testing', '2020-10-29', 3),
 (7, 'order desc testing\r\n', '2020-10-29', 3),
-(11, 'hello this is ask question new page testing \r\nupdated testing is done', '2020-10-30', 1);
+(11, 'hello this is ask question new page testing \r\nupdated testing is done', '2020-10-30', 1),
+(16, 'How to reduce waste in daily life?', '2020-10-31', 3);
 
 -- --------------------------------------------------------
 
@@ -119,7 +122,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `status`, `email`, `fullname`, `dob`, `address`, `postalcode`) VALUES
-(1, 'AungKhant', '', 0, 'aungkhantmin212002@gmail.com', 'Aung Khant Min', '21/8/2002', 'Yangon,Myanmar', '12345'),
+(1, 'AungKhantmin', 'password1234', 0, 'aungkhantmin212002@gmail.com', 'Aung Khant Min', '21/8/2002', 'Yangon,Myanmar', '12345'),
 (3, 'akm', 'akm', 1, 'akm@gmail.com', 'akmmm', '21/8/2002', 'Yangon,Myanmar', '12345'),
 (9, '', '', 1, '', '', '', '', ''),
 (10, '', '', 1, '', '', '', '', '');
@@ -171,13 +174,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `faqs`
@@ -189,13 +192,13 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

@@ -126,9 +126,6 @@
                     <a class="nav-link text-dark mr-2" href="#">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="#">Help</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-dark mr-2" href="#">Contact Us</a>
                 </li>
                 <li class="nav-item">
@@ -137,10 +134,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php
-                if(!empty($_SESSION['username']))
+                if(!empty($_SESSION['id']))
                 {?>
                 <li class="nav-item">
-                    <button class="nav-link btn text-dark font-weight-bold mr-2" href="#"> <?php echo $_SESSION['username'];?></button>
+                    <button class="nav-link btn text-dark font-weight-bold mr-2" href="#"> <?php echo $result['id'];?></button>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-outline-dark py-1 mt-1 rounded-pill" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>

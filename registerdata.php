@@ -35,8 +35,14 @@
 
         $count = mysqli_num_rows($result);
         if($count == 1){
+            $_SESSION['id']= $dataset['id'];
             $_SESSION['username'] = $username;
-            header("location:account.php");
+            $_SESSION['status'] = $dataset['status'];
+            if($dataset['status'] == "0"){
+                header("location:account.php");
+            }else{
+                header("location:index.php");
+            }
         }
         else{
             header("location:index.php");

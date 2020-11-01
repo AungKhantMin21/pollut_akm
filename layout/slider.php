@@ -6,13 +6,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="holder.js/1920x500" class="d-block w-100" alt="...">
+                    <img src="images/slider1.jpg" style="height:350px; object-fit:cover;" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="holder.js/1920x500" class="d-block w-100" alt="...">
+                    <img src="images/slider2.jpg" style="height:350px; object-fit:cover;" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="holder.js/1920x500" class="d-block w-100" alt="...">
+                    <img src="images/slider3.jpg" style="height:350px; object-fit:cover;" class="d-block w-100" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

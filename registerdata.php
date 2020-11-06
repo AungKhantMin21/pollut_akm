@@ -5,7 +5,7 @@
     if(isset($_POST['username'],$_POST['email'],$_POST['password'])){
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
         $status = (isset($_POST['status']))? $_POST['status']:'0';
 
         //if(isset($_POST['status'])){

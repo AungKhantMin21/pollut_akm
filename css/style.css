@@ -1,3 +1,4 @@
+
 .slider{
     height: 550px;
     background-position: center;
@@ -155,9 +156,4 @@ header .overlay {
   header video {
     display: none;
   }
-}
-
-.tabs:hover{
-  color:rgb(26, 26, 26);
-  border-left
 }

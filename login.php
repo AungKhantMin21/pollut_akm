@@ -4,7 +4,7 @@
 
     if(isset($_POST['username'],$_POST['password'])){
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
         $sql= "SELECT * FROM user WHERE username='".$username."' AND password='".$password."'";
         

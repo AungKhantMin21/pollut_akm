@@ -21,6 +21,8 @@
     //echo $userquestion;
     //exit();
     $qu_dataset= mysqli_query($conn,$userquestion);
+    $user = "SELECT * FROM user";
+    $u_dataset = mysqli_query($conn,$user);
     
 ?>
 
@@ -34,6 +36,7 @@
                     <a class="nav-link tabs rounded-0" id="v-pills-security-tab" data-toggle="pill" href="#v-pills-security" role="tab" aria-controls="v-pills-security" aria-selected="false">Security</a>
                     <a class="nav-link tabs rounded-0" id="question-tab" data-toggle="pill" href="#question" role="tab" aria-controls="question" aria-selected="false">Question</a>
                     <a class="nav-link tabs rounded-0" id="contactus-tab" data-toggle="pill" href="#contactus" role="tab" aria-controls="contactus" aria-selected="false">Contact</a>
+                    <a class="nav-link tabs rounded-0" id="userlist-tab" data-toggle="pill" href="#userlist" role="tab" aria-controls="userlist" aria-selected="false">User list</a>
                     <?php } else{?>
                         <a class="nav-link active tabs rounded-0" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="true">General</a>
                         <a class="nav-link tabs rounded-0" id="v-pills-security-tab" data-toggle="pill" href="#v-pills-security" role="tab" aria-controls="v-pills-security" aria-selected="false">Security</a>
@@ -141,6 +144,98 @@
                             </div>
                         </div>
                         <?php }?>
+                    </div>
+
+                    <div class="tab-pane fade show" id="userlist" role="tabpanel" aria-labelledby="userlist-tab">
+                        <div class="row">
+                            <div class="col-md-12 px-0 w-100 text-center">
+                                <h3 class="w-100 pb-5 mt-3">Users Lists</h3>
+                            </div>
+                        </div>
+                        <button class="float-right mb-3 btn btn-outline-success rounded-0" id="create_user-tab" data-toggle="pill" href="#create_user" role="tab" aria-controls="create_user" aria-selected="true">Create new user</button>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                    <tr class=" text-center bg-light">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Fullname</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Birthday</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Postal Code</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                <?php while($u_result = mysqli_fetch_array($u_dataset)){?>
+                                    <tr>
+                                        <td class="text-center"><?php echo $u_result['id'];?></td>
+                                        <td class="text-center"><?php echo $u_result['username'];?></td>
+                                        <td class="text-center"><?php echo $u_result['fullname'];?></td>
+                                        <td class="text-center"><?php echo $u_result['email'];?></td>
+                                        <td class="text-center"><?php echo $u_result['dob'];?></td>
+                                        <td class="text-center"><?php echo $u_result['address'];?></td>
+                                        <td class="text-center"><?php echo $u_result['postalcode'];?></td>
+                                        <td class="text-center"><?php if($u_result['status'] == '0'){
+                                                echo "Admin";
+                                            }else{
+                                                echo "User";
+                                            }?></td>
+                                        <td class="text-center"><a href="delete_user.php?id=<?php echo $u_result['id'];?>" class="btn text-danger rounded-circle align-middle"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                <?php }?>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade show" id="create_user" role="tabpanel" aria-labelledby="create_user-tab">
+                        <div class="row">
+                            <div class="col-md-12 px-0 w-100 text-center">
+                                <h3 class="w-100 pb-5 mt-3">Create New User</h3>
+                            </div>
+                        </div>
+                        <form action="create_user.php" method="POST">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Fullname</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Date of Birth</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="dob" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-4 my-3">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-4 my-3">
+                                    <label>Address</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-4 my-3">
+                                    <label>Postal Code</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="postalcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4 mx-auto my-3">
+                                    <label>Password</label>
+                                    <input type="text" class="form-control pl-2 rounded-0" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="col-md-4 mx-auto my-3">
+                                    <label>Role</label>
+                                    <select name="status" class="custom-select rounded-0" id="inputGroupSelect01">
+                                        <option value="0">Admin</option>
+                                        <option selected value="1">User</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2"></div>
+                                <button type="reset" class="btn btn-outline-danger ml-3 mr-2 mt-3 px-3" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Back</button>
+                                <button type="submit" class="btn btn-dark mt-3 px-4">Create</button>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane fade" id="v-pills-security" role="tabpanel" aria-labelledby="v-pills-security-tab">

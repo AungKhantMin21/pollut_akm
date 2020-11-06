@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once "dbconfig/dbconnect.php";
+    require_once "../dbconfig/dbconnect.php";
     if(!empty($_SESSION['username'])){
         $sql="SELECT * FROM user WHERE id ='".$_SESSION['id']."'";
         $dataset = mysqli_query($conn,$sql);
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css'/>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
     <style>
             .nav-pills .nav-link.active,
@@ -54,8 +54,8 @@
                 if(!empty($_SESSION['username']))
                 {   
                     ?>
-                    <a href='account.php?id=<?php echo $result['id'];?>' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $result['username'];?></a>
-                    <a href='logout.php' class='btn btn-outline-dark btn-sm rounded-pill px-3 py-2'><i class="fas fa-sign-out-alt"></i>&nbsp;LOGOUT</a>
+                    <a href='../account.php?id=<?php echo $result['id'];?>' class='btn btn-dark btn-sm rounded-pill mr-2 px-3 py-2'><i class='fa fa-user'></i> &nbsp;Welcome, <?php echo $result['username'];?></a>
+                    <a href='../logout.php' class='btn btn-outline-dark btn-sm rounded-pill px-3 py-2'><i class="fas fa-sign-out-alt"></i>&nbsp;LOGOUT</a>
                 <?php } else {?>
                 <button class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2" data-toggle="modal" data-target="#login"><i class="fa fa-user"></i> &nbsp;LOGIN</button>
                 <?php }?>
@@ -99,16 +99,16 @@
     <div class="p-4 bg-dark">
     </div>
     <nav class="list-group list-group-flush">
-        <a href="index.php" class="list-group-item border-0 text-dark text-decoration-none">Home</a>
-        <a href="aboutus.php" class="list-group-item border-0 text-dark text-decoration-none">About</a>
-        <a href="news/" class="list-group-item border-0 text-dark text-decoration-none">News</a>
+        <a href="../index.php" class="list-group-item border-0 text-dark text-decoration-none">Home</a>
+        <a href="../aboutus.php" class="list-group-item border-0 text-dark text-decoration-none">About</a>
+        <a href="index.php" class="list-group-item border-0 text-dark text-decoration-none">News</a>
         <?php if(!empty($_SESSION['id'])){
             if($result['status'] == "0"){ ?>
-                <a href="news/upload.php" class="list-group-item border-0 text-dark text-decoration-none">Upload News</a>
+                <a href="upload.php" class="list-group-item border-0 text-dark text-decoration-none">Upload News</a>
             <?php }else{}
         }else{}?>
-        <a href="contactus.php" class="list-group-item border-0 text-dark text-decoration-none">Contact Us</a>
-        <a href="faq.php" class="list-group-item border-0 text-dark text-decoration-none">FAQ</a>
+        <a href="../contactus.php" class="list-group-item border-0 text-dark text-decoration-none">Contact Us</a>
+        <a href="../faq.php" class="list-group-item border-0 text-dark text-decoration-none">FAQ</a>
     </nav>
 </aside>
 <!-- navbar for mobile version -->
@@ -122,26 +122,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="#">Home</a>
+                    <a class="nav-link text-dark mr-2" href="../index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="#">About</a>
+                    <a class="nav-link text-dark mr-2" href="../aboutus.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="#">News</a>
+                    <a class="nav-link text-dark mr-2" href="index.php">News</a>
                 </li>
                 <?php if(!empty($_SESSION['id'])){
-                    if($result['status'] == "0"){ ?>
+                        if($result['status'] == "0"){ ?>
                         <li class="nav-item">
-                            <a href="news/upload.php" class="nav-link text-dark mr-2">Upload News</a>
+                            <a class="nav-link text-dark mr-2" href="upload.php">News</a>
                         </li>
                     <?php }else{}
                 }else{}?>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="#">Contact Us</a>
+                    <a class="nav-link text-dark mr-2" href="../contactus.php">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="#">FAQ</a>
+                    <a class="nav-link text-dark mr-2" href="../faq.php">FAQ</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -149,7 +149,7 @@
                 if(!empty($_SESSION['id']))
                 {?>
                 <li class="nav-item">
-                    <button class="nav-link btn text-dark font-weight-bold mr-2" href="#"> <?php echo $result['id'];?></button>
+                    <button class="nav-link btn text-dark font-weight-bold mr-2" href="#"> <?php echo $result['username'];?></button>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-outline-dark py-1 mt-1 rounded-pill" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
@@ -185,7 +185,7 @@
                         <h4 class="w-100 font-weight-bold text-uppercase">Welcome back</h4>
                         </div>
                     </div>
-                    <form action="login.php" method="POST">
+                    <form action="../login.php" method="POST">
                     <div class="row px-2">
                         <div class="col-12">
                             <div class="input-group mb-4">
@@ -237,7 +237,7 @@
                         <h4 class="w-100 font-weight-bold text-uppercase">Create account</h4>
                         </div>
                     </div>
-                    <form action="./registerdata.php" method="POST">
+                    <form action="../registerdata.php" method="POST">
                     <div class="row px-2">
                         <div class="col-12">
                             <div class="input-group mb-4">
@@ -276,6 +276,70 @@
                             <button class='btn btn-dark btn-block mb-2' type='submit' >Sign Up</button>
                             <small class="text-muted">Already have an account?</small>
                             <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#login" data-dismiss="modal" aria-label="Close">Login</a>
+                        </div>
+                    </div>
+                    </form>
+                    </div>
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- modal for account details -->
+<div class="modal fade" id="accdetails" tabindex="-1" aria-labelledby="accdetailsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-0">
+        <div class="modal-body p-0">
+                <div class="container fluid">
+                    <div class="row">
+                        <div class="col-sm-6 px-0">
+                            <img src="https://img.freepik.com/free-vector/air-pollution-problem-big-city-two-children-silhouette-modern-city-with-skyscrapers-factories-garbage-pollution-cities-concept-urban-landscape-illustration_313242-19.jpg?size=626&ext=jpg&ga=GA1.2.1474196149.1603190938" class="w-100 h-100" alt="" style="filter:grayscale(100%); object-fit:cover;">
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="row px-2 mb-4 mt-5">
+                        <div class="col-12 text-center">
+                        <h4 class="w-100 font-weight-bold text-uppercase">Account Details</h4>
+                        </div>
+                    </div>
+                    <form action="./updatedata.php?id=<?php echo $result['id'];?>" method="POST">
+                    <div class="row px-2">
+                        <div class="col-12">
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-id-card"></i></span>
+                                </div>  
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="fullname" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-calendar-alt"></i></span>
+                                </div>
+                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="dob" placeholder="Date of Birth" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="address" placeholder="Postal Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-location-arrow"></i></span>
+                                </div>
+                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="postalcode" placeholder="Postal Code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row px-2 mt-2">
+                        <div class="col-12">
+                            <button class="btn btn-dark btn-block mb-2" type="submit">Confirm</button>
+                            <small class="text-muted">Something wrong?</small>
+                            <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#signup" data-dismiss="modal" aria-label="Close">Go Back</a>
                         </div>
                     </div>
                     </form>

@@ -237,43 +237,82 @@
                         <h4 class="w-100 font-weight-bold text-uppercase">Create account</h4>
                         </div>
                     </div>
-                    <form action="../registerdata.php" method="POST">
+                    <form id="regForm" action="../registerdata.php" method="POST">
                     <div class="row px-2">
                         <div class="col-12">
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                </div>  
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
-                            </div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <div class="tab">
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    </div>  
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="username" placeholder="Username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
                                 </div>
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="email" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
-                            </div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-key" aria-hidden="true" ></i></span>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="email" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
                                 </div>
-                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text  bg-white border-top-0 border-left-0 border-right-0 rounded-0" for="inputGroupSelect01">
-                                        <i class="fas fa-user-cog"></i>
-                                    </label>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fa fa-key" aria-hidden="true" ></i></span>
+                                    </div>
+                                    <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
-                                <select name="status" class="custom-select border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroupSelect01">
-                                    <option value="0">Admin</option>
-                                    <option selected value="1">User</option>
-                                </select>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text  bg-white border-top-0 border-left-0 border-right-0 rounded-0" for="inputGroupSelect01">
+                                            <i class="fas fa-user-cog"></i>
+                                        </label>
+                                    </div>
+                                    <select name="status" class="custom-select border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroupSelect01">
+                                        <option value="0">Admin</option>
+                                        <option selected value="1">User</option>
+                                    </select>
+                                </div>
                             </div>
+                            <div class="tab">
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-address-card"></i></span>
+                                    </div>  
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="fullname" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="dob" placeholder="Date of Birth (DD/MM/YY)" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-location-arrow"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="postalcode" placeholder="Postal code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text  bg-white border-top-0 border-left-0 border-right-0 rounded-0">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="address" placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" class="btn btn-outline-dark" onclick="nextPrev(-1)">Back</button>
+                            <button type="button" id="nextBtn" class="btn btn-dark px-4" onclick="nextPrev(1)">Next</button>
                         </div>
                     </div>
                     <div class="row px-2 mt-2">
                         <div class="col-12">
-                            <button class='btn btn-dark btn-block mb-2' type='submit' >Sign Up</button>
                             <small class="text-muted">Already have an account?</small>
                             <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#login" data-dismiss="modal" aria-label="Close">Login</a>
                         </div>
@@ -308,36 +347,48 @@
                     </div>
                     <form action="./updatedata.php?id=<?php echo $result['id'];?>" method="POST">
                     <div class="row px-2">
-                        <div class="col-12">
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-id-card"></i></span>
-                                </div>  
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="fullname" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-calendar-alt"></i></span>
+                    <div class="tab">
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-address-card"></i></span>
+                                    </div>  
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="fullname" placeholder="Fullname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
                                 </div>
-                                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="dob" placeholder="Date of Birth" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-map-marker-alt"></i></span>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="dob" placeholder="Date of Birth (DD/MM/YY)" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
                                 </div>
-                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="address" placeholder="Postal Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-location-arrow"></i></span>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-top-0 border-left-0 border-right-0 rounded-0" id="inputGroup-sizing-sm"><i class="fas fa-location-arrow"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="postalcode" placeholder="Postal code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
-                                <input type="password" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="postalcode" placeholder="Postal Code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text  bg-white border-top-0 border-left-0 border-right-0 rounded-0">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" name="address" placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" class="btn btn-outline-dark" onclick="nextPrev(-1)">Back</button>
+                            <button type="button" id="nextBtn" class="btn btn-dark px-4" onclick="nextPrev(1)">Next</button>
                         </div>
                     </div>
                     <div class="row px-2 mt-2">
                         <div class="col-12">
-                            <button class="btn btn-dark btn-block mb-2" type="submit">Confirm</button>
                             <small class="text-muted">Something wrong?</small>
                             <a href="#" class="text-info" style="font-size:12px;" data-toggle="modal" data-target="#signup" data-dismiss="modal" aria-label="Close">Go Back</a>
                         </div>

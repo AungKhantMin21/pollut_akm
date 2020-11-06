@@ -7,6 +7,10 @@
         $email = $_POST['email'];
         $password = md5($_POST['password']);
         $status = (isset($_POST['status']))? $_POST['status']:'0';
+        $fullname= $_POST['fullname'];
+        $dob = $_POST['dob'];
+        $address = $_POST['address'];
+        $postalcode = $_POST['postalcode'];
 
         //if(isset($_POST['status'])){
         //    $status = $_POST['status'];
@@ -23,7 +27,7 @@
         //echo $status;
 
 
-        $sql="INSERT INTO user(username,email, password,status) VALUES('".$username."','".$email."','".$password."','".$status."')";
+        $sql="INSERT INTO user(username,email, password,status,fullname,address,postalcode,dob) VALUES('".$username."','".$email."','".$password."','".$status."','".$fullname."','".$address."','".$postalcode."','".$dob."')";
         mysqli_query($conn,$sql);
         
 

@@ -95,7 +95,7 @@
                                 <?php if(!empty($_SESSION['id'])){ 
                                         if($result['status'] == 0){?>
                                             <div class="dropdown">
-                                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                <button class="btn btn-sm pr-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                 <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item bg-light" href="edit.php?id=<?php echo $result_news['news_id'];?>"><i class="fas fa-edit"></i> Edit</a>
                                                     <a class="dropdown-item bg-light" href="delete.php?id=<?php echo $result_news['news_id'];?>"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a>

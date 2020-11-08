@@ -18,17 +18,16 @@
                     <h2 style="font-family: serif; font-style: oblique;">
                         Pollut
                     </h2>
-                    <p style="font-size: small;" class="font-weight-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus sit dicta recusandae reprehenderit necessitatibus perferendis velit iste quasi reiciendis.</p>
+                    <p style="font-size: small;" class="font-weight-light">Pollut is a organization founded by a group of entrepreneurs from United States. Pollut offers the latest news about air pollution and air quality of United States.</p>
                 </div>
                 <div class="col-2 px-0 mt-1 text-center mx-auto">
                     <h5 class="text-uppercase">Menu</h5>
                     <nav class="nav flex-column">
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="#">Home</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="#">About</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="#">News</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="#">Help</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="#">Contact Us</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="#">FAQ</a>
+                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="index.php">Home</a>
+                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="abouts.php">About</a>
+                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="news/">News</a>
+                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="contactus.php">Contact Us</a>
+                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="faq.php">FAQ</a>
                     </nav>
                 </div>
                 <div class="col-md-3 px-0 mt-1 text-center">
@@ -42,7 +41,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-2" style="font-size: small;" href="#">
+                                    <a class="nav-link text-white px-0 py-2" style="font-size: small;" href="https://waqi.info/">
                                         <img src="https://aqicn.org/air/images/aqicnxl.png" style="width: 70px; height: 30px; object-fit: cover;" alt="">
                                     </a>
                                 </li>
@@ -64,7 +63,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white mt-2 px-0 py-2 font-weight-light pb-3" style="font-size: small;" href="#">
+                                    <a class="nav-link text-white mt-2 px-0 py-2 font-weight-light pb-3" style="font-size: small;" href="https://waqi.info/">
                                         World Air Quality Index
                                     </a>
                                 </li>
@@ -83,32 +82,32 @@
                         <div class="col-6 px-0 text-right">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="#"><i class="fab fa-facebook-square mr-3" style="font-size:17px;"></i> </a>
+                                  <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://www.facebook.com/"><i class="fab fa-facebook-square mr-3" style="font-size:17px;"></i> </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="#"><i class="fab fa-instagram mr-3" style="font-size:17px;"></i></a>
+                                    <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram mr-3" style="font-size:17px;"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="#"><i class="fab fa-twitter-square mr-3" style="font-size:17px;"></i></a>
+                                  <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://twitter.com/?lang=en"><i class="fab fa-twitter-square mr-3" style="font-size:17px;"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="#"><i class="fab fa-youtube mr-3" style="font-size:17px;"></i></a>
+                                    <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://www.youtube.com/"><i class="fab fa-youtube mr-3" style="font-size:17px;"></i></a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-6 px-0 text-left">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="#">Facebook</a>
+                                  <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://www.facebook.com/">Facebook</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="#">Instagram</a>
+                                    <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://www.instagram.com/?hl=en">Instagram</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="#">Twitter</a>
+                                  <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://twitter.com/?lang=en">Twitter</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="#">Youtube</a>
+                                    <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://www.youtube.com/">Youtube</a>
                                 </li>
                             </ul>
                         </div>
@@ -180,6 +179,11 @@
         setTimeout(function () { 
             $('#afterlogin').alert('close'); 
         }, 5000); 
+
+        setTimeout(function () { 
+            document.getElementById("loginalert").innerHTML = "";
+        }, 30000);
+
 
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab

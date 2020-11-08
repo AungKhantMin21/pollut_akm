@@ -1,6 +1,6 @@
 <?php include("layout/header.php");
 require_once "dbconfig/dbconnect.php";
-if(empty($_SESSION['username']))
+if(empty($_SESSION['id']))
 {
     echo '<script type="text/javascript">'; 
     echo 'alert("You does not have permission to visit this page. You need to login first.");'; 
@@ -10,7 +10,7 @@ if(empty($_SESSION['username']))
 else{
 
 
-$tbluser = "SELECT * FROM user WHERE username= '".$_SESSION['username']."'";
+$tbluser = "SELECT * FROM user WHERE id= '".$_SESSION['id']."'";
 $dataset = mysqli_query($conn,$tbluser);
 $result = mysqli_fetch_array($dataset);
 $tblquestion = "SELECT * FROM question AS q, user AS u WHERE q.id = u.id ORDER BY q.question_id DESC;";
@@ -40,9 +40,13 @@ $q_dataset = mysqli_query($conn,$tblquestion);
                                 </button>
                             </div>
                             <div id="collapase<?php echo $question_id;?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <?php $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
+                                $a_dataset = mysqli_query($conn,$tblanswer);
+                                while($a_result = mysqli_fetch_array($a_dataset)){?>
                                 <div class="card-body" style="border-left: 5px solid ##6c757d;">
-                                    <span class="text-secondary" style="font-size:25px; border-left: 5px solid ##6c757d;">Ans.</span>&nbsp; <?php echo $a_result['answer'];?>
+                                    <span class="text-secondary" style="font-size:25px; border-left: 5px solid ##6c757d;">Ans.</span>&nbsp; <?php echo $a_result['answer'];?> 
                                 </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
 <?php include("layout/header.php");
-      $news = "SELECT * FROM news as n, user as u WHERE category = 0 AND n.id=u.id;";
+      $news = "SELECT * FROM news as n, user as u WHERE category = 0 AND n.id=u.id ORDER BY n.news_id DESC;";
       $newsdata = mysqli_query($conn,$news);
-      $globalnews = "SELECT * FROM news as n, user as u WHERE category = 1 AND n.id=u.id;";
+      $globalnews = "SELECT * FROM news as n, user as u WHERE category = 1 AND n.id=u.id ORDER BY n.news_id DESC;";
       $globalnewsdata = mysqli_query($conn,$globalnews);
-      $localnews = "SELECT * FROM news as n, user as u WHERE category = 2 AND n.id=u.id;";
+      $localnews = "SELECT * FROM news as n, user as u WHERE category = 2 AND n.id=u.id ORDER BY n.news_id DESC;";
       $localnewsdata = mysqli_query($conn,$localnews);
       if(!empty($_SESSION['id'])){ 
         if($result['status'] == 0){

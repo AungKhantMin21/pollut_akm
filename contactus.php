@@ -15,7 +15,7 @@
                     <h4 class="mb-4">Contact form</h4>
                     <form class="mb-3" action="insert_contactus.php" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required>
+                            <input type="text" class="form-control" name="name" placeholder="Name" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="email" placeholder="Email" required>

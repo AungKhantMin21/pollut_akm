@@ -16,7 +16,7 @@
     $tblquestion = "SELECT * FROM question AS q, user AS u WHERE q.id = u.id ORDER BY q.question_id DESC;";
     $q_dataset = mysqli_query($conn,$tblquestion);
     $userquestion = "SELECT * FROM question as q, user AS u WHERE q.id = u.id AND u.username= '".$result['username']."' ORDER BY q.question_id DESC";
-    $tblcontactus = "SELECT * FROM contactus as c, user as u WHERE c.id=u.id ORDER BY c.contactus_id DESC";
+    $tblcontactus = "SELECT * FROM contactus ORDER BY contactus_id DESC";
     $c_dataset = mysqli_query($conn,$tblcontactus);
     //echo $userquestion;
     //exit();
@@ -131,11 +131,11 @@
                         <div class="card mb-3">
                             <div class="card-body shadow-sm">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <span class="text-muted"><?php echo $c_result['username'];?></span><br>
+                                    <div class="col-9">
+                                        <span class="text-muted"><?php echo $c_result['name']." ( ".$c_result['email']." )";?></span><br>
                                         <span class="text-muted"><?php echo $c_result['contact_date'];?></span><br>
                                     </div>
-                                    <div class="col-6 text-right">
+                                    <div class="col-3 text-right">
                                         <a href="delete_contact.php?id=<?php echo $c_result['contactus_id'];?>" class="btn btn-outline-danger rounded-circle btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
@@ -244,40 +244,49 @@
                                 <h3 class="w-100 pb-5 mt-3">Security</h3>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>User Password</label>
-                                <div class="p-3">
-                                    <div class="row">
-                                        <div class="col-12 px-0">
-                                            <div class="form-control pl-2 rounded-0 border"><?php echo $result['password'];?></div>
-                                        </div>
-                                        <small class="mt-2 text-muted">
-                                            It's a good idea to use strong password for stronger security.
-                                        </small>
+                        <div class="col-md-8">
+                            <label>Change Password</label>
+                            <form action="editsecurity.php?id=<?php echo $result['id'];?>" method="POST">
+                            <div class="p-3">
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                            <input class="form-control pl-2 rounded-0 mb-4 border" placeholder="Old password" name="oldpassword">
+                                            <input class="form-control pl-2 rounded-0 mb-4 border" placeholder="New password" name="newpassword">
+                                            <input class="form-control pl-2 rounded-0 border" placeholder="Confirm password" name="confirmpw">
+                                        
                                     </div>
+                                    <small class="mt-2 text-muted">
+                                        It's a good idea to use long password for stronger security.
+                                    </small>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label>User Role</label>
-                                <div class="p-3">
-                                    <div class="row">
-                                        <div class="col-12 px-0">
-                                            <div class="form-control pl-2 rounded-0 border"><?php 
-                                            if( $result['status'] == 0){
-                                                echo "Admin";
-                                            }else{
-                                                echo "User";
-                                            }?></div>
-                                        </div>
-                                        <small class="mt-2 text-muted">
-                                            User Roles can be thought of as "permission groups" that define the access that certain users have in Asset Essentials.
-                                        </small>
+                            <button class="btn btn-dark mb-4 px-4" type="submit">Update password</button>
+                            </form>
+                        </div>
+                        <div class="col-md-8">
+                            <label>User Role</label>
+                            <div class="p-3">
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <div class="form-control pl-2 rounded-0 border"><?php 
+                                        if( $result['status'] == 0){
+                                            echo "Admin";
+                                        }else{
+                                            echo "User";
+                                        }?></div>
                                     </div>
+                                    <small class="mt-2 text-muted">
+                                        User Roles can be thought of as "permission groups" that define the access that certain users have in Asset Essentials.
+                                    </small>
+                                    <?php
+                                        if( $result['status'] == 0){ ?>
+                                            <button type="button" class="btn btn-dark mr-2 mt-3 px-3" id="editsecurity-tab" data-toggle="pill" href="#editsecurity" role="tab" aria-controls="editsecurity" aria-selected="true">Edit user role</button>
+                                        <?php }else{ ?>
+                                            
+                                        <?php }?>
                                 </div>
+                            </div>
 
-                            </div>
-                            <a class="btn btn-dark ml-3 px-4" id="editsecurity-tab" data-toggle="pill" href="#editsecurity" role="tab" aria-controls="editsecurity" aria-selected="true">Edit</a>
                         </div>
                     </div>
 
@@ -287,48 +296,50 @@
                                 <h3 class="w-100 pb-5 mt-3">Security</h3>
                             </div>
                         </div>
-                        <form action="editsecurity.php?id=<?php echo $result['id'];?>" method="POST">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>User Password</label>
-                                    <div class="p-3">
-                                        <div class="row">
-                                            <div class="col-12 px-0">
-                                                <input type="text" class="form-control pl-2 rounded-0" name="password" value="<?php echo $result['password'];?>" placeholder="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                        <div class="col-md-8">
+                            <label>Change Password</label>
+                                    <form action="editsecurity.php?id=<?php echo $result['id'];?>" method="POST">
+                                        <div class="p-3">
+                                            <div class="row">
+                                                <div class="col-12 px-0">
+                                                        <input class="form-control pl-2 rounded-0 mb-4 border" placeholder="Old password" name="oldpassword">
+                                                        <input class="form-control pl-2 rounded-0 mb-4 border" placeholder="New password" name="newpassword">
+                                                        <input class="form-control pl-2 rounded-0 border" placeholder="Confirm password" name="confirmpw">
+                                                    
+                                                </div>
+                                                <small class="mt-2 text-muted">
+                                                    It's a good idea to use long password for stronger security.
+                                                </small>
                                             </div>
-                                            <small class="mt-2 text-muted">
-                                                It's a good idea to use strong password for stronger security.
-                                            </small>
                                         </div>
-                                    </div>
+                                        <button class="btn btn-dark mb-4 px-4" type="submit">Update password</button>
+                                    </form>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <label>User Role</label>
+                                    <form action="editsecurity.php?id=<?php echo $result['id'];?>" method="POST">
                                     <div class="p-3">
                                         <div class="row">
                                             <div class="col-12 px-0">
-                                            <select name="status" class="custom-select rounded-0" id="inputGroupSelect01">
-                                                <?php if($result['status'] == 0){ ?>
-                                                    <option selected value="0">Admin</option>
-                                                    <option value="1">User</option>
-                                                <?php } else{?>
-                                                    <option value="0">Admin</option>
-                                                    <option selected value="1">User</option>
-                                                <?php }?>
-                                            </select>
+                                                <select name="status" class="custom-select rounded-0" id="inputGroupSelect01">
+                                                    <?php if($result['status'] == 0){ ?>
+                                                        <option selected value="0">Admin</option>
+                                                        <option value="1">User</option>
+                                                    <?php } else{?>
+                                                        <option value="0">Admin</option>
+                                                        <option selected value="1">User</option>
+                                                    <?php }?>
+                                                </select>
                                             </div>
                                             <small class="mt-2 text-muted">
                                                 User Roles can be thought of as "permission groups" that define the access that certain users have in Asset Essentials.
                                             </small>
                                         </div>
                                     </div>
-
-                                </div>
-                                <button type="reset" class="btn btn-outline-danger ml-3 px-3" data-toggle="pill" href="#v-pills-security" role="tab" aria-controls="v-pills-security" aria-selected="false">Back</button>
+                                <button type="reset" class="btn btn-outline-danger px-3" data-toggle="pill" href="#v-pills-security" role="tab" aria-controls="v-pills-security" aria-selected="false">Back</button>
                                 <button type="submit" class="btn btn-dark ml-2 px-4">Edit</button>
-
+                                </form>
                             </div>
-                        </form>
                     </div>
                     <!--<div class="row">
                         <div class="col-md-12 mb-3">
@@ -402,7 +413,11 @@
                                                     <p><?php echo $q_result['question'];?></p>
                                                     <hr>
                                                     <h6>Answer section</h6>
-                                                    <?php if($result['status'] == 0){ ?>
+                                                    <?php if($result['status'] == 0){ 
+                                                        $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
+                                                        $a_dataset = mysqli_query($conn,$tblanswer);
+                                                        while($a_result = mysqli_fetch_array($a_dataset)){?>
+                                                        
                                                         <div class="card mb-3">
                                                             <div class="card-body bg-light p-2 border-0">
                                                                 <div class="row">
@@ -414,14 +429,15 @@
                                                                             <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                             <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
                                                                                 <a class="dropdown-item bg-light" href="editanswer.php?id=<?php echo $a_result['answer_id'];?>&qid=<?php echo $q_result['question_id'];?>"><i class="fas fa-edit"></i> Edit</a>
-                                                                                <a class="dropdown-item bg-light" href="delete_answer.php?id=<?php echo $a_result['answer_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                                <a class="dropdown-item bg-light" href="delete_answer.php?id=<?php echo $a_result['answer_id'];?>&qid=<?php echo $q_result['id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>                                                 
-                                                                <p><?php echo $a_result['answer'];?></p>
+                                                                <?php echo $a_result['answer'];?>
                                                             </div>
                                                         </div>
+                                                        <?php }?>
                                                         <form action="insert_ans.php?id=<?php echo $q_result['question_id'];?>&user=<?php echo $result['id'];?>" method="POST">
                                                             <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3" required></textarea>
                                                             <button type="submit" class="btn btn-dark">Submit</button>
@@ -490,19 +506,58 @@
                                                         <p><?php echo $qu_result['question'];?></p>
                                                         <hr>
                                                         <h6>Answer section</h6>
-                                                        <?php if($result['status'] == 0){ ?>
-                                                            <p><?php echo $qu_result['answer'];?></p>
+                                                        <?php if($result['status'] == 0){ 
+                                                            $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
+                                                            $a_dataset = mysqli_query($conn,$tblanswer);
+                                                            while($a_result = mysqli_fetch_array($a_dataset)){?>
+                                                        
+                                                                <div class="card mb-3">
+                                                                    <div class="card-body bg-light p-2 border-0">
+                                                                        <div class="row">
+                                                                            <div class="col-6">
+                                                                                <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span> 
+                                                                            </div>
+                                                                            <div class="col-6 text-right">
+                                                                                <div class="dropdown">
+                                                                                    <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                                        <a class="dropdown-item bg-light" href="delete_answer.php?id=<?php echo $a_result['answer_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>                                                 
+                                                                        <p><?php echo $a_result['answer'];?></p>
+                                                                    </div>
+                                                                </div>
+                                                                <?php }?>
                                                             <form action="insert_ans.php" method="POST">
                                                                 <textarea class="form-control mb-2" name="answer" placeholder="Your answer" rows="3" required></textarea>
                                                                 <button type="submit" class="btn btn-dark">Submit</button>
                                                             </form>
-                                                        <?php }else{?>
-                                                            <div class="card">
-                                                                <div class="card-body bg-light p-2 border-0">
-                                                                    <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span><br>                                                              
-                                                                    <p><?php echo $a_result['answer'];?></p>
+                                                        <?php }else{
+                                                            $tblanswer = "SELECT * FROM answer AS a, question AS q, user AS u WHERE a.question_id = q.question_id AND a.id = u.id AND a.question_id='$question_id';";
+                                                            $a_dataset = mysqli_query($conn,$tblanswer);
+                                                            while($a_result = mysqli_fetch_array($a_dataset)){?>
+                                                        
+                                                                <div class="card mb-3">
+                                                                    <div class="card-body bg-light p-2 border-0">
+                                                                        <div class="row">
+                                                                            <div class="col-6">
+                                                                                <span class="text-muted"><?php echo $a_result['username'];?> (admin)</span> 
+                                                                            </div>
+                                                                            <div class="col-6 text-right">
+                                                                                <div class="dropdown">
+                                                                                    <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
+                                                                                    <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
+                                                                                        <a class="dropdown-item bg-light" href="delete_answer.php?id=<?php echo $a_result['answer_id'];?>&qid=<?php echo  $qu_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>                                                 
+                                                                        <p><?php echo $a_result['answer'];?></p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                                <?php }?>
                                                         <?php }?>
                                                     </div>
                                                 </div>

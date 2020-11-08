@@ -9,7 +9,7 @@
             <div class="row py-5">
                 <div class="col-md-9 text-center mx-auto">
                     <h1 class="mb-4">About Us</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias incidunt fugiat illum ipsum culpa modi ab. Illum hic veniam, autem, sapiente temporibus mollitia ratione eaque sed, accusamus enim quos quod!</p>
+                    <p>Pollut is a organization founded by a group of entrepreneurs from United States. Pollut offers the latest news about air pollution and air quality of United States.</p>
                 </div>
             </div>
             <div class="row py-5" style="background-color: #f5f5f5;">
@@ -59,10 +59,10 @@
             <div class="row" style="background-color: #f5f5f5;">
                 <div class="col-md-6 py-5">
                     <h3 class="mb-4 text-center">Our Team</h3>
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. A itaque deleniti voluptate enim eos nostrum, illum inventore rem soluta, expedita quas. Sed, voluptatibus exercitationem. Eveniet dicta aliquid tempora nostrum quod.</p>
+                    <p class="text-justify">Pollut's success is greatly due to the support of our dedicated staff and volunteers. If you are interested in volunteering or working with Pollut send us an email with your interest, availability and skill set to <a href="contactus.php" class="text-info text-decoration-none">here</a>. We are always looking for passionate and driven individuals to join our team!</p>
                     <br><br>
                     <h3 class="mb-4 text-center">Our Story</h3>
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. A itaque deleniti voluptate enim eos nostrum, illum inventore rem soluta, expedita quas. Sed, voluptatibus exercitationem. Eveniet dicta aliquid tempora nostrum quod.</p>
+                    <p class="text-justify">Pollut brings together 4 years of experience in running a successful social informative website. We aim to support people to know about how air pollution is harmful.  Pollut does this by providing the ways and solutions to prevent the air pollution in order to get better livings.</p>
                 </div>
                 <div class="col-md-6 p-0">
                     <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80" style="height: 435px; object-fit: cover;" class="w-100" alt="">

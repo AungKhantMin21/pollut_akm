@@ -1,13 +1,34 @@
 <?php 
     include("layout/header.php");
     include("layout/slider.php");
+    $news = "SELECT * FROM news as n, user as u WHERE category = 0 AND n.id=u.id ORDER BY news_id DESC LIMIT 1;";
+    $newsdata = mysqli_query($conn,$news);
+    $result_ours = mysqli_fetch_array($newsdata);
+    $globalnews = "SELECT * FROM news as n, user as u WHERE category = 1 AND n.id=u.id ORDER BY news_id DESC LIMIT 1;";
+    $globalnewsdata = mysqli_query($conn,$globalnews);
+    $result_global = mysqli_fetch_array($globalnewsdata);
+    $localnews = "SELECT * FROM news as n, user as u WHERE category = 2 AND n.id=u.id ORDER BY news_id DESC LIMIT 1;";
+    $localnewsdata = mysqli_query($conn,$localnews);
+    $result_local = mysqli_fetch_array($localnewsdata);
+    function custom_echo($x, $length)
+    {
+        if(strlen($x)<=$length)
+        {
+            echo $x;
+        }
+        else
+        {
+            $y=substr($x,0,$length) . ' . . .';
+            echo $y;
+        }
+    }
 ?>
     <section>
         <div class="container-fluid">
             <div class="row py-5">
                 <div class="col-md-9 text-center mx-auto">
                     <h2>Welcome</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias incidunt fugiat illum ipsum culpa modi ab. Illum hic veniam, autem, sapiente temporibus mollitia ratione eaque sed, accusamus enim quos quod!</p>
+                    <p>Pollut is a organization founded by a group of entrepreneurs from United States. Pollut offers the latest news about air pollution and air quality of United States</p>
                 </div>
             </div>
             
@@ -111,8 +132,8 @@
                     <h4>Air Quality In US</h4>
                     <div class="row mt-4">
                         <div class="col-md-6">
-                            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Air pollution</b> is getting worse, and data show more people are dying. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero dignissimos facere harum aliquid vero eaque dolore? Ex voluptatem consectetur, provident quidem est molestiae at repellendus dolor nobis voluptatibus doloribus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo quaerat earum dolorum tempora est molestiae necessitatibus, suscipit delectus dolore et aliquid ducimus nemo porro provident veniam eaque quod dignissimos modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit.<br> <br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque nobis error commodi, dicta ea quibusdam nostrum quis ex eligendi necessitatibus harum laudantium, ipsum minima veniam explicabo velit. At, necessitatibus nam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita blanditiis rem dolorum. Rem excepturi a recusandae eius, temporibus quam dolore voluptatum. Ducimus illo aspernatur magni, eum odio amet autem. Fugiat!</p>
+                            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Air pollution</b> is getting worse, and data show more people are dying. Recent press reports note that air quality has improved worldwide and in the United States during the ongoing pandemic1. Shortly prior to the pandemic, though, stories lamented declining American air quality2. What’s really going on?  Is the news good or bad?<br> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Certainly, the pandemic and the resulting orders to Americans to stay at home and to pause nonessential business activities have decreased activities such as driving and manufacturing that generate air pollution. Even before those events, however, significant progress had been made in reducing air pollution in the United States. The American Lung Association recognizes in its 2020 report on the State of the Air that there have been “dramatic improvements” in air quality over the past fifty years.</p>
                         </div>
                         <div class="col-md-6">
                             <img src="images/usair.PNG" alt="" class="w-100 mt-2">
@@ -122,35 +143,41 @@
                 </div>
             </div>
             <div class="row pt-5 px-3">
-                <h3>Popular News</h3>
+                <h3>Recent News</h3>
             </div>
             <div class="row pb-5">
                 <div class="col-md-4 mt-3">
-                    <div class="slider" style="background-image: url(images/gettyimages-575346013-612x612\ \(1\).jpg); height:330px;">
+                    <a href="news/news.php?id=<?php echo $result_ours['news_id'];?>" class="text-decoration-none">
+                    <div class="slider hvr-float" style="background-image: url(images/gettyimages-575346013-612x612.jpg); height:330px;">
                         <div class="h-100 px-3 text-white" style="padding-top:200px; background:rgba(0, 0, 0, 0.109);">
-                            <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;">Industry</span>
-                            <h4 class="mt-2">Air pollution in industrial areas are increasing more and more</h4>
-                            <span>6 Oct, 2020</span>
+                            <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;"><?php echo $result_ours['tags'];?></span>
+                            <h4 class="mt-2"><?php custom_echo($result_ours['title'],45);?></h4>
+                            <span><?php echo $result_ours['date'];?></span>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <div class="col-md-4 mt-3">
-                    <div class="slider" style="background-image: url(images/2.jpg); height:330px;">
+                    <a href="news/news.php?id=<?php echo $result_global['news_id'];?>" class="text-decoration-none">
+                    <div class="slider hvr-float" style="background-image: url(images/<?php echo $result_global['photo'];?>); height:330px;">
                         <div class="h-100 px-3 text-white" style="padding-top:200px; background:rgba(0, 0, 0, 0.109);">
-                            <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;">Urban</span>
-                            <h4 class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
-                            <span>6 Oct, 2020</span>
+                            <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;"><?php echo $result_global['tags'];?></span>
+                            <h4 class="mt-2"><?php custom_echo($result_global['title'],45);?></h4>
+                            <span><?php echo $result_global['date'];?></span>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <div class="col-md-4 mt-3">
-                    <div class="slider" style="background-image: url(images/wildfire.jpg); height:330px;">
+                    <a href="news/news.php?id=<?php echo $result_local['news_id'];?>" class="text-decoration-none">
+                    <div class="slider hvr-float" style="background-image: url(images/<?php echo $result_local['photo'];?>); height:330px;">
                         <div class="h-100 px-3 text-white" style="padding-top:200px; background:rgba(0, 0, 0, 0.109);">
-                            <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;">Fires</span>
-                            <h4 class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
-                            <span>6 Oct, 2020</span>
+                            <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;"><?php echo $result_local['tags'];?></span>
+                            <h4 class="mt-2"><?php custom_echo($result_local['title'],45);?></h4>
+                            <span><?php echo $result_local['date'];?></span>
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>

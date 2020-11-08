@@ -16,6 +16,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css'/>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css'/>
     <title>Document</title>
     <style>
             .nav-pills .nav-link.active,
@@ -42,13 +43,13 @@
 <div class="col-md-12 d-lg-block d-none" style="background-color: rgba(245, 245, 245, 0.966); border-bottom: 1px solid rgb(216, 216, 216);">
     <div class="container pr-4">
         <div class="row py-3">
-            <div class="col-md-4 pr-0">
+            <div class="col-md-5 pr-0">
                 <button data-trigger="#my_offcanvas1" class="btn btn-sm pt-1 mb-2"><i class="fas fa-bars align-middle" style="font-size: 22px;"></i></button>
             </div>
-            <div class="col-md-4 text-center px-0">
-                <h2 class='font-weight-bold text-dark' style="font-family: serif; font-style: oblique;">Pollut</h2>
+            <div class="col-md-2 text-center px-0">
+                <a href="../index.php" class="text-decoration-none"><h2 class='font-weight-bold text-dark' style="font-family: serif; font-style: oblique;">Pollut</h2></a>
             </div>
-            <div class="col-md-4 text-right px-0">
+            <div class="col-md-5 text-right px-0">
                 <?php
                 
                 if(!empty($_SESSION['username']))
@@ -99,16 +100,16 @@
     <div class="p-4 bg-dark">
     </div>
     <nav class="list-group list-group-flush">
-        <a href="../index.php" class="list-group-item border-0 text-dark text-decoration-none">Home</a>
-        <a href="../aboutus.php" class="list-group-item border-0 text-dark text-decoration-none">About</a>
-        <a href="index.php" class="list-group-item border-0 text-dark text-decoration-none">News</a>
+        <a href="../index.php" class="list-group-item border-0 text-dark text-decoration-none hvr-grow">Home</a>
+        <a href="../aboutus.php" class="list-group-item border-0 text-dark text-decoration-none hvr-grow">About</a>
+        <a href="index.php" class="list-group-item border-0 text-dark text-decoration-none hvr-grow">News</a>
         <?php if(!empty($_SESSION['id'])){
             if($result['status'] == "0"){ ?>
-                <a href="upload.php" class="list-group-item border-0 text-dark text-decoration-none">Upload News</a>
+                <a href="upload.php" class="list-group-item border-0 text-dark text-decoration-none hvr-grow">Upload News</a>
             <?php }else{}
         }else{}?>
-        <a href="../contactus.php" class="list-group-item border-0 text-dark text-decoration-none">Contact Us</a>
-        <a href="../faq.php" class="list-group-item border-0 text-dark text-decoration-none">FAQ</a>
+        <a href="../contactus.php" class="list-group-item border-0 text-dark text-decoration-none hvr-grow">Contact Us</a>
+        <a href="../faq.php" class="list-group-item border-0 text-dark text-decoration-none hvr-grow">FAQ</a>
     </nav>
 </aside>
 <!-- navbar for mobile version -->
@@ -122,26 +123,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="../index.php">Home</a>
+                    <a class="nav-link text-dark mr-2 hrv-grow" href="../index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="../aboutus.php">About</a>
+                    <a class="nav-link text-dark mr-2 hrv-grow" href="../aboutus.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="index.php">News</a>
+                    <a class="nav-link text-dark mr-2 hrv-grow" href="index.php">News</a>
                 </li>
                 <?php if(!empty($_SESSION['id'])){
                         if($result['status'] == "0"){ ?>
                         <li class="nav-item">
-                            <a class="nav-link text-dark mr-2" href="upload.php">News</a>
+                            <a class="nav-link text-dark mr-2 hrv-grow" href="upload.php">News</a>
                         </li>
                     <?php }else{}
                 }else{}?>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="../contactus.php">Contact Us</a>
+                    <a class="nav-link text-dark mr-2 hrv-grow" href="../contactus.php">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-2" href="../faq.php">FAQ</a>
+                    <a class="nav-link text-dark mr-2 hrv-grow" href="../faq.php">FAQ</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -149,10 +150,10 @@
                 if(!empty($_SESSION['id']))
                 {?>
                 <li class="nav-item">
-                    <button class="nav-link btn text-dark font-weight-bold mr-2" href="#"> <?php echo $result['username'];?></button>
+                    <button class="nav-link btn text-dark font-weight-bold mr-2 hvr-grow" href="#"> <?php echo $result['username'];?></button>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-dark py-1 mt-1 rounded-pill" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                    <a class="btn btn-outline-dark py-1 mt-1 rounded-pill" href="../logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                 </li>
                 <?php } else{?>
                 <li class="nav-item">
@@ -202,6 +203,8 @@
                             </div>
                         </div>
                     </div>
+                    <?php if(!isset($_GET['message'])){}else{
+                        echo "<p id='loginalert' class='text-danger mt-0' style='font-size:13px;'>".$_GET['message']."</p>"; }?>
                     <div class="row px-2 mt-2 mb-4">
                         <div class="col-12">
                             <button class="btn btn-dark btn-block mb-2">Login</button>
@@ -326,7 +329,7 @@
     </div>
   </div>
 </div>
-<!-- modal for account details -->
+<!-- modal for account details
 <div class="modal fade" id="accdetails" tabindex="-1" aria-labelledby="accdetailsLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content rounded-0">
@@ -401,4 +404,4 @@
         </div>
     </div>
   </div>
-</div>
+</div>-->

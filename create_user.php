@@ -5,7 +5,7 @@
     if(empty($_SESSION['id'])){
             echo '<script type="text/javascript">'; 
             echo 'alert("You do not have permission to do this. You need to login first.");'; 
-            echo 'window.location.href = "account.php";';
+            echo 'window.location.href = "index.php";';
             echo '</script>';
         }
     else{
@@ -15,18 +15,28 @@
         $result= mysqli_fetch_array($data);
         if($result['status'] == "0"){
             if(isset($_POST['username'])){
-                $username = $_POST['username'];
-                $fullname = $_POST['fullname'];
-                $dob = $_POST['dob'];
-                $email = $_POST['email'];
-                $address = $_POST['address'];
-                $postalcode = $_POST['postalcode'];
-                $password = md5($_POST['password']);
-                $status = $_POST['status'];
-                $sql = "INSERT INTO user(username,fullname,dob,email,address,postalcode,password,status) VALUES('$username','$fullname','$dob','$email','$address','$postalcode','$password','$status')";
-
-                mysqli_query($conn,$sql);
-                header("location:account.php"); 
+                $cuser = "SELECT * FROM user";
+                $cdata = mysqli_query($conn,$cuser);
+                $current_user = mysqli_fetch_array($cdata);
+                if($_POST['username'] == $current_user['username']){
+                    echo '<script type="text/javascript">'; 
+                    echo 'alert("This username is already taken. Please try another username");'; 
+                    echo 'window.location.href = "account.php";';
+                    echo '</script>';
+                }else{
+                    $username = $_POST['username'];
+                    $fullname = $_POST['fullname'];
+                    $dob = $_POST['dob'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $postalcode = $_POST['postalcode'];
+                    $password = md5($_POST['password']);
+                    $status = $_POST['status'];
+                    $sql = "INSERT INTO user(username,fullname,dob,email,address,postalcode,password,status) VALUES('$username','$fullname','$dob','$email','$address','$postalcode','$password','$status')";
+    
+                    mysqli_query($conn,$sql);
+                    header("location:account.php"); 
+                }
             }else{
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Data cannot be blank.");'; 

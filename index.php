@@ -148,7 +148,7 @@
             <div class="row pb-5">
                 <div class="col-md-4 mt-3">
                     <a href="news/news.php?id=<?php echo $result_ours['news_id'];?>" class="text-decoration-none">
-                    <div class="slider hvr-float" style="background-image: url(images/gettyimages-575346013-612x612.jpg); height:330px;">
+                    <div class="slider hvr-float w-100" style="background-image: url(images/<?php echo $result_ours['photo'];?>); height:330px;">
                         <div class="h-100 px-3 text-white" style="padding-top:200px; background:rgba(0, 0, 0, 0.109);">
                             <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;"><?php echo $result_ours['tags'];?></span>
                             <h4 class="mt-2"><?php custom_echo($result_ours['title'],45);?></h4>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="col-md-4 mt-3">
                     <a href="news/news.php?id=<?php echo $result_global['news_id'];?>" class="text-decoration-none">
-                    <div class="slider hvr-float" style="background-image: url(images/<?php echo $result_global['photo'];?>); height:330px;">
+                    <div class="slider hvr-float w-100" style="background-image: url(images/<?php echo $result_global['photo'];?>); height:330px;">
                         <div class="h-100 px-3 text-white" style="padding-top:200px; background:rgba(0, 0, 0, 0.109);">
                             <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;"><?php echo $result_global['tags'];?></span>
                             <h4 class="mt-2"><?php custom_echo($result_global['title'],45);?></h4>
@@ -170,7 +170,7 @@
                 </div>
                 <div class="col-md-4 mt-3">
                     <a href="news/news.php?id=<?php echo $result_local['news_id'];?>" class="text-decoration-none">
-                    <div class="slider hvr-float" style="background-image: url(images/<?php echo $result_local['photo'];?>); height:330px;">
+                    <div class="slider hvr-float w-100" style="background-image: url(images/<?php echo $result_local['photo'];?>); height:330px;">
                         <div class="h-100 px-3 text-white" style="padding-top:200px; background:rgba(0, 0, 0, 0.109);">
                             <span class="px-4 rounded-pill py-1" style="background-color:rgba(0, 0, 0, 0.623);font-size: 13px;"><?php echo $result_local['tags'];?></span>
                             <h4 class="mt-2"><?php custom_echo($result_local['title'],45);?></h4>

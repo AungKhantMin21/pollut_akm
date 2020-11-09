@@ -203,8 +203,6 @@
                             </div>
                         </div>
                     </div>
-                    <?php if(!isset($_GET['message'])){}else{
-                        echo "<p id='loginalert' class='text-danger mt-0' style='font-size:13px;'>".$_GET['message']."</p>"; }?>
                     <div class="row px-2 mt-2 mb-4">
                         <div class="col-12">
                             <button class="btn btn-dark btn-block mb-2">Login</button>

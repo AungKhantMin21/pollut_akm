@@ -4,7 +4,7 @@
 
     $msg='';
     if(isset($_POST['username'],$_POST['password'])){
-        $time=time()-30;
+        $time=time()-600;
         $ip_address=getIpAddr();
         // Getting total count of hits on the basis of IP
         $query=mysqli_query($conn,"SELECT count(*) as total_count from loginlogs where TryTime > $time and IpAddress='$ip_address'");
@@ -12,8 +12,10 @@
         $total_count=$check_login_row['total_count'];
         //Checking if the attempt 3, or youcan set the no of attempt her. For now we taking only 3 fail attempted
         if($total_count==3){
-            $msg="You have no attempt left. Please try again after 30 s. (try again after this message disapper)";
-            header("location:index.php?message=$msg");
+            echo '<script type="text/javascript">'; 
+            echo 'alert("You have no attempt left. Please try again after 10 min.");'; 
+            echo 'window.location.href = "index.php";';
+            echo '</script>';
         }else{
         //Getting Post Values
             $username = $_POST['username'];
@@ -41,14 +43,14 @@
                 $rem_attm=3-$total_count;
                 if($rem_attm == 0){
                     echo '<script type="text/javascript">'; 
+                    echo "alert('You have no attempt left. Please try again after 10 min.');"; 
+                    echo 'window.location.href = "index.php";';
+                    echo '</script>';
+                }else{
+                    echo '<script type="text/javascript">'; 
                     echo "alert('The login attempt failed. $rem_attm attempts remaining.');"; 
                     echo 'window.location.href = "index.php";';
                     echo '</script>';
-                    $msg="You have no attempt left. Please try again after 30 s. (try again after this message disapper)";
-                    header("location:index.php?message=$msg");
-                }else{
-                    $msg="The login attempt failed. $rem_attm attempts remaining.";
-                    header("location:index.php?message=$msg");
                 }
                 $try_time=time();
                 mysqli_query($conn,"INSERT into loginlogs(IpAddress,TryTime) values('$ip_address','$try_time')");

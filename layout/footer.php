@@ -23,11 +23,11 @@
                 <div class="col-2 px-0 mt-1 text-center mx-auto">
                     <h5 class="text-uppercase">Menu</h5>
                     <nav class="nav flex-column">
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="index.php">Home</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="abouts.php">About</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="news/">News</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="contactus.php">Contact Us</a>
-                        <a class="nav-link py-1 text-white font-weight-light" style="font-size:small;" href="faq.php">FAQ</a>
+                        <a class="nav-link py-1 text-white font-weight-light hvr-grow" style="font-size:small;" href="index.php">Home</a>
+                        <a class="nav-link py-1 text-white font-weight-light hvr-grow" style="font-size:small;" href="abouts.php">About</a>
+                        <a class="nav-link py-1 text-white font-weight-light hvr-grow" style="font-size:small;" href="news/">News</a>
+                        <a class="nav-link py-1 text-white font-weight-light hvr-grow" style="font-size:small;" href="contactus.php">Contact Us</a>
+                        <a class="nav-link py-1 text-white font-weight-light hvr-grow" style="font-size:small;" href="faq.php">FAQ</a>
                     </nav>
                 </div>
                 <div class="col-md-3 px-0 mt-1 text-center">
@@ -58,17 +58,17 @@
                         <div class="col-6 px-0 pl-2 text-left">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                  <a class="nav-link text-white mt-2 px-0 py-2 font-weight-light" style="font-size: small;" href="https://www.airnow.gov/">
+                                  <a class="nav-link text-white mt-2 px-0 py-2 font-weight-light hvr-grow" style="font-size: small;" href="https://www.airnow.gov/">
                                     Air Now
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white mt-2 px-0 py-2 font-weight-light pb-3" style="font-size: small;" href="https://waqi.info/">
+                                    <a class="nav-link text-white mt-2 px-0 py-2 font-weight-light hvr-grow pb-3" style="font-size: small;" href="https://waqi.info/">
                                         World Air Quality Index
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white mt-1 px-0 py-2 font-weight-light" style="font-size: small;" href="https://www.iqair.com/world-air-quality">
+                                    <a class="nav-link text-white mt-1 px-0 py-2 font-weight-light hvr-grow" style="font-size: small;" href="https://www.iqair.com/world-air-quality">
                                         IQAir
                                     </a>
                                 </li>
@@ -82,32 +82,32 @@
                         <div class="col-6 px-0 text-right">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://www.facebook.com/"><i class="fab fa-facebook-square mr-3" style="font-size:17px;"></i> </a>
+                                  <a class="nav-link text-white px-0 py-1 hvr-grow" style="font-size: small;" href="https://www.facebook.com/"><i class="fab fa-facebook-square mr-3" style="font-size:17px;"></i> </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram mr-3" style="font-size:17px;"></i></a>
+                                    <a class="nav-link text-white px-0 py-1 hvr-grow" style="font-size: small;" href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram mr-3" style="font-size:17px;"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://twitter.com/?lang=en"><i class="fab fa-twitter-square mr-3" style="font-size:17px;"></i></a>
+                                  <a class="nav-link text-white px-0 py-1 hvr-grow" style="font-size: small;" href="https://twitter.com/?lang=en"><i class="fab fa-twitter-square mr-3" style="font-size:17px;"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1" style="font-size: small;" href="https://www.youtube.com/"><i class="fab fa-youtube mr-3" style="font-size:17px;"></i></a>
+                                    <a class="nav-link text-white px-0 py-1 hvr-grow" style="font-size: small;" href="https://www.youtube.com/"><i class="fab fa-youtube mr-3" style="font-size:17px;"></i></a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-6 px-0 text-left">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://www.facebook.com/">Facebook</a>
+                                  <a class="nav-link text-white px-0 py-1 font-weight-light hvr-grow" style="font-size: small;" href="https://www.facebook.com/">Facebook</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://www.instagram.com/?hl=en">Instagram</a>
+                                    <a class="nav-link text-white px-0 py-1 font-weight-light hvr-grow" style="font-size: small;" href="https://www.instagram.com/?hl=en">Instagram</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://twitter.com/?lang=en">Twitter</a>
+                                  <a class="nav-link text-white px-0 py-1 font-weight-light hvr-grow" style="font-size: small;" href="https://twitter.com/?lang=en">Twitter</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white px-0 py-1 font-weight-light" style="font-size: small;" href="https://www.youtube.com/">Youtube</a>
+                                    <a class="nav-link text-white px-0 py-1 font-weight-light hvr-grow" style="font-size: small;" href="https://www.youtube.com/">Youtube</a>
                                 </li>
                             </ul>
                         </div>
@@ -180,9 +180,6 @@
             $('#afterlogin').alert('close'); 
         }, 5000); 
 
-        setTimeout(function () { 
-            document.getElementById("loginalert").innerHTML = "";
-        }, 30000);
 
 
         var currentTab = 0; // Current tab is set to be the first tab (0)

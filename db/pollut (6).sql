@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2020 at 08:08 PM
+-- Generation Time: Nov 09, 2020 at 04:21 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.18
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `answer` (
   `answer_id` int(11) NOT NULL,
-  `answer` text DEFAULT NULL,
+  `answer` text NOT NULL,
   `id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,8 +39,8 @@ CREATE TABLE `answer` (
 --
 
 INSERT INTO `answer` (`answer_id`, `answer`, `id`, `question_id`) VALUES
-(7, 'updated', 1, 11),
-(10, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\n', 1, 16);
+(45, 'answr for question ', 1, 17),
+(65, 'final answer insert edited', 1, 37);
 
 -- --------------------------------------------------------
 
@@ -50,29 +50,23 @@ INSERT INTO `answer` (`answer_id`, `answer`, `id`, `question_id`) VALUES
 
 CREATE TABLE `contactus` (
   `contactus_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `contact_date` date NOT NULL DEFAULT current_timestamp(),
-  `id` int(11) NOT NULL
+  `contact_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `contactus`
---
-
-INSERT INTO `contactus` (`contactus_id`, `subject`, `message`, `contact_date`, `id`) VALUES
-(3, 'feedback after delete', 'message testing', '2020-10-31', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faqs`
+-- Table structure for table `loginlogs`
 --
 
-CREATE TABLE `faqs` (
-  `faq_id` int(11) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  `answer_id` int(11) NOT NULL
+CREATE TABLE `loginlogs` (
+  `login_id` int(11) NOT NULL,
+  `IpAddress` varbinary(16) NOT NULL,
+  `TryTime` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -102,7 +96,8 @@ INSERT INTO `news` (`news_id`, `title`, `description`, `photo`, `date`, `categor
 (11, 'Tiny air pollution rise linked to 11% more Covid-19 deaths – study', 'A small rise in people’s long-term exposure to air pollution is associated with an 11% increase in deaths from Covid-19, research has found. Another recent study suggests that 15% of all Covid-19 deaths around the world are attributable to dirty air.\r\n\r\nThe available data only allows correlations to be established and further work is needed to confirm the connections, but the researchers said the evidence was now strong enough that levels of dirty air must be considered a key factor in handling coronavirus outbreaks.\r\n\r\nThe new analysis is based on research reported by the Guardian in April, which has now been reviewed by independent scientists and published in a prominent journal. The consideration of additional data and more factors that may also influence Covid-19 death rates refined the rise in deaths from 15% down to 11%.\r\n\r\nMost scientists think it is very likely that air pollution increases the number and severity of Covid-19 cases. Breathing dirty air over years is already known to cause heart and lung disease, and these illnesses make coronavirus infections worse. Short-term exposure is also known to increase the risk of acute lung infections.\r\n\r\nThe gold-standard method for confirming the link between air pollution and Covid-19 would be to assess a large number of coronavirus patients on an individual level, so their age, smoking history and other details can be taken into account.\r\n\r\nSuch data, however, is not yet available so given the urgency of the pandemic researchers have used data on groups of people. This can be strongly indicative of a link, but may hide important individual factors.\r\n\r\nThere are now hundreds of group-level studies, although most have yet to be reviewed, said Prof Francesca Dominici at Harvard University, who led the new analysis.', '4194.jpg', '2020-11-06', 2, 'Covid19', 1),
 (12, 'Blog Post 2', 'adsnad asd asdad asd', '2.jpg', '2020-11-06', 0, 'asdad', 1),
 (13, 'Updated test', 'A small rise in people’s long-term exposure to air pollution is associated with an 11% increase in deaths from Covid-19, research has found. Another recent study suggests that 15% of all Covid-19 deaths around the world are attributable to dirty air.\r\n\r\nThe available data only allows correlations to be established and further work is needed to confirm the connections, but the researchers said the evidence was now strong enough that levels of dirty air must be considered a key factor in handling coronavirus outbreaks.\r\n\r\nThe new analysis is based on research reported by the Guardian in April, which has now been reviewed by independent scientists and published in a prominent journal. The consideration of additional data and more factors that may also influence Covid-19 death rates refined the rise in deaths from 15% down to 11%.\r\n\r\nMost scientists think it is very likely that air pollution increases the number and severity of Covid-19 cases. Breathing dirty air over years is already known to cause heart and lung disease, and these illnesses make coronavirus infections worse. Short-term exposure is also known to increase the risk of acute lung infections.\r\n\r\nThe gold-standard method for confirming the link between air pollution and Covid-19 would be to assess a large number of coronavirus patients on an individual level, so their age, smoking history and other details can be taken into account.\r\n\r\nSuch data, however, is not yet available so given the urgency of the pandemic researchers have used data on groups of people. This can be strongly indicative of a link, but may hide important individual factors.\r\n\r\nThere are now hundreds of group-level studies, although most have yet to be reviewed, said Prof Francesca Dominici at Harvard University, who led the new analysis.', 'gettyimages-575346013-612x612 (1).jpg', '2020-11-06', 1, 'Covid19', 1),
-(14, 'Creation of IT system for clothing distributor', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nWhy do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'wildfire.jpg', '2020-11-06', 1, 'global news', 1);
+(14, 'Creation of IT system for clothing distributor', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nWhy do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'wildfire.jpg', '2020-11-06', 1, 'global news', 1),
+(16, 'We donated 3 millions dollar to help other youth association.', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque nobis error commodi, dicta ea quibusdam nostrum quis ex eligendi necessitatibus harum laudantium, ipsum minima veniam explicabo velit. At, necessitatibus nam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita blanditiis rem dolorum. Rem excepturi a recusandae eius, temporibus quam dolore voluptatum. Ducimus illo aspernatur magni, eum odio amet autem. Fugiat!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque nobis error commodi, dicta ea quibusdam nostrum quis ex eligendi necessitatibus harum laudantium, ipsum minima veniam explicabo velit. At, necessitatibus nam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita blanditiis rem dolorum. Rem excepturi a recusandae eius, temporibus quam dolore voluptatum. Ducimus illo aspernatur magni, eum odio amet autem. Fugiat!', 'gettyimages-575346013-612x612.jpg', '2020-11-08', 0, 'donation', 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +121,9 @@ INSERT INTO `question` (`question_id`, `question`, `question_date`, `id`) VALUES
 (5, 'user question testing', '2020-10-29', 3),
 (7, 'order desc testing\r\n', '2020-10-29', 3),
 (11, 'hello this is ask question new page testing \r\nupdated testing is done', '2020-10-30', 1),
-(16, 'How to reduce waste in daily life?', '2020-10-31', 3);
+(16, 'How to reduce waste in daily life?', '2020-10-31', 3),
+(17, 'Question final testing', '2020-11-07', 3),
+(37, 'final testing done', '2020-11-08', 53);
 
 -- --------------------------------------------------------
 
@@ -151,13 +148,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `status`, `email`, `fullname`, `dob`, `address`, `postalcode`) VALUES
-(1, 'AungKhant', 'bdc87b9c894da5168059e00ebffb9077', 0, 'aungkhantmin212002@gmail.com', 'Aung Khant Min', '21/8/2002', 'Yangon,Myanmar', '12345'),
-(3, 'akm', 'c6a7d2c304e4c34d720c900db714fa40', 1, 'akm@gmail.com', 'akmmm', '21/8/2002', 'Yangon,Myanmar', '12345'),
-(26, 'test', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 'test@gmail.com', '', '', '', ''),
+(1, 'AungKhant', 'bdc87b9c894da5168059e00ebffb9077', 0, 'aungkhantmin212002@gmail.com', 'Aung Khant Min', '21/8/2002', 'Yangon,Myanmar', '234567'),
+(3, 'akm', 'ee9fb3a0c7132d3fef4ad9ea35846678', 1, 'akm@gmail.com', 'akmmm', '21/8/2002', 'Yangon,Myanmar', '12345'),
 (27, 'pwhashing', 'd440aed189a13ff970dac7e7e8f987b2', 1, 'pw@gmail.com', 'pwtesting', '18/3/2020', 'Yangon,Myanmar', '12345'),
-(31, 'Signup testing', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 'signup@gmail.com', 'signup', '18/3/2020', 'Yangon,Myanmar', '12345'),
-(33, 'AungKhant', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 'adsd', '', '', '', ''),
-(34, 'testttt', '098f6bcd4621d373cade4e832627b4f6', 0, 'testtttt', '', '', '', '');
+(53, 'potato', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 'potato@gmail.com', 'toe toe', '21/8/2002', 'postato farm', '12345'),
+(54, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 'admin@gmail.com', 'admin', '18/3/2020', 'Yangon,Myanmar', '234567'),
+(63, 'user', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 'user@gmail.com', 'user fullname', '18/3/2020', 'Yangon,Myanmar', '234567');
 
 --
 -- Indexes for dumped tables
@@ -178,12 +174,10 @@ ALTER TABLE `contactus`
   ADD PRIMARY KEY (`contactus_id`);
 
 --
--- Indexes for table `faqs`
+-- Indexes for table `loginlogs`
 --
-ALTER TABLE `faqs`
-  ADD PRIMARY KEY (`faq_id`),
-  ADD KEY `question fk` (`question_id`),
-  ADD KEY `answer fk` (`answer_id`);
+ALTER TABLE `loginlogs`
+  ADD PRIMARY KEY (`login_id`);
 
 --
 -- Indexes for table `news`
@@ -203,7 +197,8 @@ ALTER TABLE `question`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -213,37 +208,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `faqs`
+-- AUTO_INCREMENT for table `loginlogs`
 --
-ALTER TABLE `faqs`
-  MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `loginlogs`
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- Constraints for dumped tables
@@ -255,13 +250,6 @@ ALTER TABLE `user`
 ALTER TABLE `answer`
   ADD CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `question_id` FOREIGN KEY (`question_id`) REFERENCES `question` (`question_id`);
-
---
--- Constraints for table `faqs`
---
-ALTER TABLE `faqs`
-  ADD CONSTRAINT `answer fk` FOREIGN KEY (`answer_id`) REFERENCES `answer` (`answer_id`),
-  ADD CONSTRAINT `question fk` FOREIGN KEY (`question_id`) REFERENCES `question` (`question_id`);
 
 --
 -- Constraints for table `news`

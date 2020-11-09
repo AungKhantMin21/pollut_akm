@@ -15,10 +15,10 @@
         $result= mysqli_fetch_array($data);
         if($result['status'] == "0"){
             if(isset($_POST['username'])){
-                $cuser = "SELECT * FROM user";
+                $cuser = "SELECT * FROM user WHERE username='".$_POST['username']."'";
                 $cdata = mysqli_query($conn,$cuser);
-                $current_user = mysqli_fetch_array($cdata);
-                if($_POST['username'] == $current_user['username']){
+                $u_count = mysqli_num_rows($cdata);
+                if($u_count > 0){
                     echo '<script type="text/javascript">'; 
                     echo 'alert("This username is already taken. Please try another username");'; 
                     echo 'window.location.href = "account.php";';

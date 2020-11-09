@@ -222,7 +222,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-md-4 mx-auto my-3">
                                     <label>Password</label>
-                                    <input type="text" class="form-control pl-2 rounded-0" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                    <input type="password" class="form-control pl-2 rounded-0" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
                                 <div class="col-md-4 mx-auto my-3">
                                     <label>Role</label>
@@ -232,7 +232,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2"></div>
-                                <button type="reset" class="btn btn-outline-danger ml-3 mr-2 mt-3 px-3" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Back</button>
+                                <button type="reset" class="btn btn-outline-danger ml-3 mr-2 mt-3 px-3" id="userlist-tab" data-toggle="pill" href="#userlist" role="tab" aria-controls="userlist" aria-selected="true">Back</button>
                                 <button type="submit" class="btn btn-dark mt-3 px-4">Create</button>
                             </div>
                         </form>

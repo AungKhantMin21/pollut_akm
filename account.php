@@ -404,7 +404,6 @@
                                                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                 <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
                                                                     <a class="dropdown-item bg-light" href="delete_question.php?qid=<?php echo $q_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
-                                                                    <a class="dropdown-item bg-light" href="#"><i class="fas fa-upload"></i> Post to FAQs</a>
                                                                 </div>
                                                             </div>
                                                         <?php } else{}?>
@@ -459,7 +458,6 @@
                                                                     <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                                                     <div class="dropdown-menu dropdown-menu-right bg-light" aria-labelledby="dropdownMenuButton">
                                                                         <a class="dropdown-item bg-light" href="delete_question.php?qid=<?php echo $q_result['question_id'];?>"><i class="fas fa-trash-alt"></i> Delete</a>
-                                                                        <a class="dropdown-item bg-light" href="#"><i class="fas fa-upload"></i> Post to FAQs</a>
                                                                     </div>
                                                                 </div>
                                                             <?php } else{}?>

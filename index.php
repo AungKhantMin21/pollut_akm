@@ -56,7 +56,7 @@
                     <h4>What causes Air Pollution</h4>
                     <div class="row mt-4">
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class="card mt-3">
                                 <div class="card-header p-0">
                                     <div class="hover p-0">
                                         <img src="https://images.unsplash.com/photo-1524316258794-08104ccf1e0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" class="w-100 shwekyee" style="height:330px;">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class="card mt-3">
                                 <div class="card-header p-0">
                                     <div class="hover p-0">
                                         <img src="https://images.unsplash.com/photo-1515816949419-7caf0a210607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" class="w-100 shwekyee" style="height:330px;">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class="card mt-3">
                                 <div class="card-header p-0">
                                     <div class="hover p-0">
                                         <img src="https://images.unsplash.com/photo-1596628930480-540b65f6f0a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" class="w-100 shwekyee" style="height:330px;">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class="card mt-3">
                                 <div class="card-header p-0">
                                     <div class="hover p-0">
                                         <img src="https://miro.medium.com/max/1050/1*3TeAR6a9OEX2BnE2ySkIPQ.jpeg" class="w-100 shwekyee" style="height:330px;">

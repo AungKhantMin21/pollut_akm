@@ -134,7 +134,7 @@
                 <?php if(!empty($_SESSION['id'])){
                         if($result['status'] == "0"){ ?>
                         <li class="nav-item">
-                            <a class="nav-link text-dark mr-2 hrv-grow" href="upload.php">News</a>
+                            <a class="nav-link text-dark mr-2 hrv-grow" href="upload.php">Upload News</a>
                         </li>
                     <?php }else{}
                 }else{}?>

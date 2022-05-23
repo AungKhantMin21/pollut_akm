@@ -135,8 +135,7 @@
                         if($result['status'] == "0"){ ?>
                         <li class="nav-item">
                             <a class="nav-link text-dark mr-2 hrv-grow" href="upload.php">Upload News</a>
-                        </li>
-                    <?php }else{}
+N                    <?php }else{}
                 }else{}?>
                 <li class="nav-item">
                     <a class="nav-link text-dark mr-2 hrv-grow" href="../contactus.php">Contact Us</a>

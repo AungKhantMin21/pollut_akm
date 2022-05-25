@@ -27,8 +27,9 @@
         $category = $_POST['category'];
         $tags = $_POST['tags'];
         $id = $_GET['userid'];
+        $date = date('F jS Y');
 
-        $sql = "INSERT INTO news(title,description,photo,category,tags,id) VALUES (\"".$title."\",\"".$description."\",\"".$photo."\",'$category',\"".$tags."\",'$id');";
+        $sql = "INSERT INTO news(title,description,photo,date,category,tags,id) VALUES (\"".$title."\",\"".$description."\",\"".$date."\",\"".$photo."\",'$category',\"".$tags."\",'$id');";
         mysqli_query($conn,$sql);
         echo $sql;
 

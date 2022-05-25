@@ -18,7 +18,8 @@
             $id= $result['id'];
             //echo $id;
             $question = $_POST['question'];
-            $sql = "INSERT INTO question(question,id) VALUES('$question',$id)";
+            $date = date('F jS Y');
+            $sql = "INSERT INTO question(question,id,question_date) VALUES('$question',$id,$date)";
             //echo $sql;
             //exit();
             mysqli_query($conn,$sql);

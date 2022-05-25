@@ -7,7 +7,8 @@
         $email = $_POST['email'];
         $subject = $_POST['subject'];
         $message = $_POST['message'];
-        $sql = "INSERT INTO contactus(name,email,subject,message) VALUES('".$name."','".$email."','".$subject."','".$message."')";
+        $date = date('F jS Y');
+        $sql = "INSERT INTO contactus(name,email,subject,message,contact_date) VALUES('".$name."','".$email."','".$subject."','".$message."','".$date."')";
         //echo $sql;
         //exit();
         mysqli_query($conn,$sql);
